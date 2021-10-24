@@ -1,0 +1,519 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favorite.jpeg">
+  <link rel="icon" href="/img/favorite.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Tstto">
+  <meta name="keywords" content="">
+  <meta name="description" content="第一章 计算机网络概述一、计算机网络基本概念 计算机网络是互连的、自治的计算机的集合  “互连”：指利用通信链路连接相互独立的计算机系统 “自治”：指互连的计算机系统彼此独立，不存在主从或者控制与被控制的关系  协议是网络通信实体之间在数据交换过程中需要遵循的规则或约定，是计算机网络有序运行的重要保证  协议三要素：语义、语法、时序  语法，语法定义实体之间交换信息的格式与结构 语义，语义就是定义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络原理（一）">
+<meta property="og:url" content="http://example.com/2021/10/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="Tstto&#39;s Blog">
+<meta property="og:description" content="第一章 计算机网络概述一、计算机网络基本概念 计算机网络是互连的、自治的计算机的集合  “互连”：指利用通信链路连接相互独立的计算机系统 “自治”：指互连的计算机系统彼此独立，不存在主从或者控制与被控制的关系  协议是网络通信实体之间在数据交换过程中需要遵循的规则或约定，是计算机网络有序运行的重要保证  协议三要素：语义、语法、时序  语法，语法定义实体之间交换信息的格式与结构 语义，语义就是定义">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/pic/jiwang/1.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/2.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/3.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/4.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/5.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/6.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/7.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/8.png">
+<meta property="article:published_time" content="2021-10-24T02:40:58.000Z">
+<meta property="article:modified_time" content="2021-10-24T09:20:32.171Z">
+<meta property="article:author" content="Tstto">
+<meta property="article:tag" content="计算机网络原理">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/pic/jiwang/1.png">
+  
+  <title>计算机网络原理（一） - Tstto&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Tstto</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="计算机网络原理（一）">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-24 10:40" pubdate>
+        2021年10月24日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">计算机网络原理（一）</h1>
+            
+            <div class="markdown-body">
+              <h1 id="第一章-计算机网络概述"><a href="#第一章-计算机网络概述" class="headerlink" title="第一章 计算机网络概述"></a>第一章 计算机网络概述</h1><h2 id="一、计算机网络基本概念"><a href="#一、计算机网络基本概念" class="headerlink" title="一、计算机网络基本概念"></a>一、计算机网络基本概念</h2><ol>
+<li>计算机网络是互连的、自治的计算机的集合</li>
+</ol>
+<p>“互连”：指利用通信链路连接相互独立的计算机系统</p>
+<p>“自治”：指互连的计算机系统彼此独立，不存在主从或者控制与被控制的关系</p>
+<ol start="2">
+<li>协议是网络通信实体之间在数据交换过程中需要遵循的规则或约定，是计算机网络有序运行的重要保证</li>
+</ol>
+<p><strong>协议三要素：语义、语法、时序</strong></p>
+<ul>
+<li>语法，语法定义实体之间交换信息的格式与结构</li>
+<li>语义，语义就是定义实体之间交换的信息中需要发送控制信息</li>
+<li>时序，时序也称为同步，定义实体之间交换信息的顺序以及如何匹配或适应彼此的速度</li>
+</ul>
+<ol start="3">
+<li>计算机网络的分类</li>
+</ol>
+<p><strong>按覆盖范围分类：</strong></p>
+<p>个域网（PAN）、局域网（LAN）、城域网（MAN）、广域网（WAN）</p>
+<p><strong>按拓扑结构分类：</strong></p>
+<p><img src="/pic/jiwang/1.png" srcset="/img/loading.gif" lazyload alt="常见的网络拓扑结构"></p>
+<p><strong>按交换方式分类</strong></p>
+<p>电路交换网络、报文交换网络、分组交换网络</p>
+<h2 id="二、计算机网络结构"><a href="#二、计算机网络结构" class="headerlink" title="二、计算机网络结构"></a>二、计算机网络结构</h2><p>大规模现代计算机网络的结构包括<strong>网络边缘、接入网络与网络核心</strong>3部分</p>
+<h2 id="三、数据交换技术"><a href="#三、数据交换技术" class="headerlink" title="三、数据交换技术"></a>三、数据交换技术</h2><p><img src="/pic/jiwang/2.png" srcset="/img/loading.gif" lazyload alt="交换设备与交换网络的意义"></p>
+<ol>
+<li>电路交换</li>
+</ol>
+<p>电路交换是最早出现的一种交换方式，电话网络则是最早、最大的电路交换网络</p>
+<p>利用电路交换进行通信包括<strong>建立电路、传输数据和拆除电路</strong>3个阶段</p>
+<p><img src="/pic/jiwang/3.png" srcset="/img/loading.gif" lazyload alt="电路交换"></p>
+<p>优点：<strong>实时性高</strong>，时延较小</p>
+<p>缺点：对于突发性数据传输，<strong>信道利用率低</strong>，且传输速率单一</p>
+<ol start="2">
+<li>报文交换</li>
+</ol>
+<p><strong>存储-转发</strong>交换方式，适用于电报通信</p>
+<p><img src="/pic/jiwang/4.png" srcset="/img/loading.gif" lazyload alt="分组交换"></p>
+<p>优点：<strong>不需要建立连接</strong></p>
+<p>缺点：交换结点需要缓冲存储，报文需要<strong>排队</strong>，增加了延时</p>
+<ol start="3">
+<li>分组交换</li>
+</ol>
+<p>将一个完整报文拆分成若干个<strong>分组</strong>，分组传输过程也通常采用<strong>存储-转发</strong>交换方式</p>
+<p><img src="/pic/jiwang/5.png" srcset="/img/loading.gif" lazyload alt="分组交换"></p>
+<p>优点：交换设备<strong>存储容量要求低</strong>，交换速度快，可靠传输效率高，更加公平 </p>
+<p>缺点：有效传输效率降低(<strong>分组长度与延迟时间</strong>)</p>
+<h2 id="四、计算机网络性能"><a href="#四、计算机网络性能" class="headerlink" title="四、计算机网络性能"></a>四、计算机网络性能</h2><ol>
+<li> 速率与带宽</li>
+</ol>
+<p><strong>速率</strong>是指网络单位时间内传送的数据量，用以描述网络传输数据的快慢，也称为数据传输速率或数据速率，速率的基本单位是 bit/s（位每秒，简写为bps）带宽</p>
+<p>在计算机网络中，有时也会用“<strong>带宽</strong>”这一术语描述速率</p>
+<p>带宽原本是指信号具有的频带宽度，即信号成分的最高频率与最低频率之差，单位为 Hz（赫兹）</p>
+<ol start="2">
+<li> 时延</li>
+</ol>
+<p><strong>时延</strong>是指数据从网络中的一个结点（主机或交换设备等）到达另一结点所需要的时间</p>
+<ol start="3">
+<li> 时延带宽积</li>
+</ol>
+<p>一段物理链路的传播时延与链路带宽的乘积，称为<strong>时延带宽积</strong></p>
+<ol start="4">
+<li> 丢包率</li>
+</ol>
+<p><strong>丢包率</strong>常被用于评价和衡量网络性能的指标，在很大程度上可以反映网络的拥塞程度</p>
+<p>丢包率=丢失分组总数/发送分组总数</p>
+<ol start="5">
+<li> 吞吐量</li>
+</ol>
+<p><strong>吞吐量</strong>表示在单位时间内源主机通过网络向目的主机实际送达的数据量，吞吐量经常用于度量网络的实际数据传送（通过）能力。</p>
+<h2 id="五、计算机网络体系结构"><a href="#五、计算机网络体系结构" class="headerlink" title="五、计算机网络体系结构"></a>五、计算机网络体系结构</h2><ol>
+<li> OSI（开放系统互联）参考模型</li>
+</ol>
+<p><img src="/pic/jiwang/6.png" srcset="/img/loading.gif" lazyload alt="OSI参考模型数据封装与传输过程"></p>
+<ol start="2">
+<li> TCP/IP参考模型、五层参考模型</li>
+</ol>
+<p><img src="/pic/jiwang/7.png" srcset="/img/loading.gif" lazyload alt="各模型之间的比较"></p>
+<ol start="3">
+<li> 各层次的功能</li>
+</ol>
+<p>   <img src="/pic/jiwang/8.png" srcset="/img/loading.gif" lazyload alt="层次功能"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/">计算机网络原理</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">计算机网络原理（二）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/23/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
+                        <span class="hidden-mobile">Markdown基本语法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://space.bilibili.com/387835375" target="_blank" rel="nofollow noopener"><span>Bilibili</span></a> <i class="iconfont icon-love"></i> <a href="https://gitee.com/ming-hui-pan" target="_blank" rel="nofollow noopener"><span>Gitee</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
