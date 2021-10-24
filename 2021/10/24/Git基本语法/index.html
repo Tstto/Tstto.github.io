@@ -16,34 +16,24 @@
   <meta name="description" content="">
   <meta name="author" content="Tstto">
   <meta name="keywords" content="">
-  <meta name="description" content="第二章 网络应用一、计算机网络应用体系结构 二、网络应用通信基本原理网络应用的本质是运行在不同主机上的应用进程之间的通信，无论哪种类型的网络应用，基本通信方式都是C&#x2F;S通信  三、域名系统（DNS）DNS 是一个重要的基础应用，因为任何一个需要使用域名进行通信的网络应用，在应用通信之前首先需要请求 DNS 应用，将域名映射为 IP 地址。实现将域名映射为 IP 地址的过程，称为域名解析   层次树">
+  <meta name="description" content="一、版本控制1.什么是版本控制？版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本的软件工程技术，简单说就是用于管理多人协同开发项目的技术 2.常见的版本控制工具Git、SVM、CVS、VSS、TFS… 3.版本控制分类 本地版本控制  记录文件每次的更新，可以对每个版本做一个快照，或是记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络原理（二）">
-<meta property="og:url" content="http://example.com/2021/10/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
+<meta property="og:title" content="Git基本语法">
+<meta property="og:url" content="http://example.com/2021/10/24/Git%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/index.html">
 <meta property="og:site_name" content="Tstto&#39;s Blog">
-<meta property="og:description" content="第二章 网络应用一、计算机网络应用体系结构 二、网络应用通信基本原理网络应用的本质是运行在不同主机上的应用进程之间的通信，无论哪种类型的网络应用，基本通信方式都是C&#x2F;S通信  三、域名系统（DNS）DNS 是一个重要的基础应用，因为任何一个需要使用域名进行通信的网络应用，在应用通信之前首先需要请求 DNS 应用，将域名映射为 IP 地址。实现将域名映射为 IP 地址的过程，称为域名解析   层次树">
+<meta property="og:description" content="一、版本控制1.什么是版本控制？版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本的软件工程技术，简单说就是用于管理多人协同开发项目的技术 2.常见的版本控制工具Git、SVM、CVS、VSS、TFS… 3.版本控制分类 本地版本控制  记录文件每次的更新，可以对每个版本做一个快照，或是记录">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/pic/jiwang/9.png">
-<meta property="og:image" content="http://example.com/pic/jiwang/10.png">
-<meta property="og:image" content="http://example.com/pic/jiwang/11.png">
-<meta property="og:image" content="http://example.com/pic/jiwang/12.png">
-<meta property="og:image" content="http://example.com/pic/jiwang/13.png">
-<meta property="og:image" content="http://example.com/pic/jiwang/14.png">
-<meta property="og:image" content="http://example.com/pic/jiwang/15.png">
-<meta property="og:image" content="http://example.com/pic/jiwang/16.png">
-<meta property="og:image" content="http://example.com/pic/jiwang/17.png">
-<meta property="og:image" content="http://example.com/pic/jiwang/18.png">
-<meta property="og:image" content="http://example.com/pic/jiwang/19.png">
-<meta property="og:image" content="http://example.com/pic/jiwang/20.png">
-<meta property="og:image" content="http://example.com/pic/jiwang/21.png">
-<meta property="article:published_time" content="2021-10-24T09:21:53.000Z">
-<meta property="article:modified_time" content="2021-10-24T12:50:51.187Z">
+<meta property="og:image" content="http://example.com/pic/Git/1.png">
+<meta property="og:image" content="http://example.com/pic/Git/2.jpg">
+<meta property="og:image" content="http://example.com/pic/Git/3.jpg">
+<meta property="article:published_time" content="2021-10-24T13:09:34.000Z">
+<meta property="article:modified_time" content="2021-10-24T14:54:29.718Z">
 <meta property="article:author" content="Tstto">
-<meta property="article:tag" content="计算机网络原理">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/pic/jiwang/9.png">
+<meta name="twitter:image" content="http://example.com/pic/Git/1.png">
   
-  <title>计算机网络原理（二） - Tstto&#39;s Blog</title>
+  <title>Git基本语法 - Tstto&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -177,7 +167,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="计算机网络原理（二）">
+            <span class="h2" id="subtitle" title="Git基本语法">
               
             </span>
 
@@ -187,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-24 17:21" pubdate>
-        2021年10月24日 下午
+      <time datetime="2021-10-24 21:09" pubdate>
+        2021年10月24日 晚上
       </time>
     </span>
   
@@ -198,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      901 字
+      2k 字
     </span>
   
 
@@ -207,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      6 分钟
     </span>
   
 
@@ -236,73 +226,144 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">计算机网络原理（二）</h1>
+            <h1 style="display: none">Git基本语法</h1>
             
             <div class="markdown-body">
-              <h1 id="第二章-网络应用"><a href="#第二章-网络应用" class="headerlink" title="第二章 网络应用"></a>第二章 网络应用</h1><h2 id="一、计算机网络应用体系结构"><a href="#一、计算机网络应用体系结构" class="headerlink" title="一、计算机网络应用体系结构"></a>一、计算机网络应用体系结构</h2><p><img src="/pic/jiwang/9.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="二、网络应用通信基本原理"><a href="#二、网络应用通信基本原理" class="headerlink" title="二、网络应用通信基本原理"></a>二、网络应用通信基本原理</h2><p>网络应用的本质是运行在不同主机上的应用进程之间的通信，无论哪种类型的网络应用，基本通信方式都是C/S通信</p>
-<p><img src="/pic/jiwang/10.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="三、域名系统（DNS）"><a href="#三、域名系统（DNS）" class="headerlink" title="三、域名系统（DNS）"></a>三、域名系统（DNS）</h2><p>DNS 是一个重要的基础应用，因为任何一个需要使用域名进行通信的网络应用，在应用通信之前首先需要请求 DNS 应用，将域名映射为 IP 地址。实现将域名映射为 IP 地址的过程，称为<strong>域名解析</strong></p>
+              <p><img src="/pic/Git/1.png" srcset="/img/loading.gif" lazyload alt="脑图"></p>
+<h1 id="一、版本控制"><a href="#一、版本控制" class="headerlink" title="一、版本控制"></a>一、版本控制</h1><h3 id="1-什么是版本控制？"><a href="#1-什么是版本控制？" class="headerlink" title="1.什么是版本控制？"></a>1.什么是版本控制？</h3><p>版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本的软件工程技术，简单说就是用于管理多人协同开发项目的技术</p>
+<h3 id="2-常见的版本控制工具"><a href="#2-常见的版本控制工具" class="headerlink" title="2.常见的版本控制工具"></a>2.常见的版本控制工具</h3><p>Git、SVM、CVS、VSS、TFS…</p>
+<h3 id="3-版本控制分类"><a href="#3-版本控制分类" class="headerlink" title="3.版本控制分类"></a>3.版本控制分类</h3><ul>
+<li>本地版本控制</li>
+</ul>
+<p>记录文件每次的更新，可以对每个版本做一个快照，或是记录补丁文件，适合个人用，如RCS</p>
+<ul>
+<li>集中版本控制（SVM）</li>
+</ul>
+<p>所有的版本数据都保存在服务器上，协同开发者从服务器上同步更新或上传自己的修改，如果不连网的话，用户就看不到历史版本，也无法切换版本验证问题，或在不同分支工作，如SVN、CVS、VSS</p>
+<ul>
+<li>分布式版本控制（Git）</li>
+</ul>
+<p>所有版本信息仓库全部同步到本地的每个用户，这样就可以在本地查看所有版本历史，可以离线在本地提交，只需在连网时push到相应的服务器或其他用户那里</p>
+<h1 id="二、常用的Linux命令"><a href="#二、常用的Linux命令" class="headerlink" title="二、常用的Linux命令"></a>二、常用的Linux命令</h1><ul>
+<li>cd：改变目录<ul>
+<li>cd..：回退到上一个目录，直接cd进入默认目录</li>
+</ul>
+</li>
+<li>pwd：显示当前所在的目录路径</li>
+<li>ls（ll）：都是列出当前目录中的所有文件，只不过ll（两个ll）列出的内容更详细</li>
+<li>touch : 新建一个文件如 touch index.js，就会在当前目录下新建一个index.js文件</li>
+<li>mkdir:  新建一个目录，就是新建一个文件夹</li>
+<li>rm:  删除一个文件，rm index.js 就会把index.js文件删除<ul>
+<li>rm -r :  删除一个文件夹，rm -r src 删除src目录</li>
+<li>rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！（f迭代，/根目录）</li>
+</ul>
+</li>
+<li>mv：移动文件, mv index.html src，index.html 是我们要移动的文件,，src 是目标文件夹， 这样写必须保证文件和目标文件夹在同一目录下</li>
+<li>reset：重新初始化终端/清屏</li>
+<li>clear 清屏</li>
+<li>history 查看命令历史</li>
+<li>help 帮助</li>
+<li>exit 退出</li>
+<li>“#”表示注释</li>
+</ul>
+<h1 id="三、Git基本概念"><a href="#三、Git基本概念" class="headerlink" title="三、Git基本概念"></a>三、Git基本概念</h1><p><img src="/pic/Git/2.jpg" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>工作区</p>
+<ul>
+<li>本地项目存放文件的位置，即workspace</li>
+</ul>
+</li>
+<li><p>暂存区(Index/Stage)</p>
+<ul>
+<li>暂时存放文件的地方，通过<strong>add</strong>命令将工作区的文件加到缓冲区</li>
+</ul>
+</li>
+<li><p>本地仓库(Repository)</p>
+<ul>
+<li>通常情况下，我们使用<strong>commit</strong>命令可以将暂存区的文件添加到本地仓库</li>
+<li>通常而言，HEAD指针指向的是master分支</li>
+</ul>
+</li>
+<li><p>远程仓库(Remote)</p>
+<ul>
+<li>GitHub托管项目时，它就是一个远程仓库</li>
+<li>通常我们使用clone命令将远程仓库代码拷贝下来，本地代码更新后，通过<strong>push</strong>推送到远程仓库</li>
+</ul>
+</li>
+</ul>
+<p><img src="/pic/Git/3.jpg" srcset="/img/loading.gif" lazyload alt="基本工作流程"></p>
+<h1 id="四、Git进阶"><a href="#四、Git进阶" class="headerlink" title="四、Git进阶"></a>四、Git进阶</h1><h3 id="1-Git使用前配置"><a href="#1-Git使用前配置" class="headerlink" title="1.Git使用前配置"></a>1.Git使用前配置</h3><p>在使用git前，需要告诉git你是谁，在向git仓库中提交时需要用到。</p>
 <ol>
-<li> 层次树状结构的命名方法</li>
+<li>配置提交人姓名:<code>git config --global user.name 提交人姓名</code></li>
+<li>配置提交人邮箱:<code>git config --global user.email 提交人邮箱</code></li>
+<li>查看git配置信息:<code>git config --list</code></li>
 </ol>
+<blockquote>
+<p><strong>注意</strong></p>
+</blockquote>
 <ul>
-<li>国家顶级域名 nTLD</li>
-<li>通用顶级域名 gTLD</li>
-<li>基础结构域名</li>
+<li>如果要对配置信息进行修改，重复上述命令即可</li>
+<li>配置只需要执行一次。</li>
 </ul>
-<ol start="2">
-<li> 域名服务器</li>
-</ol>
-<p>为了实现域名解析，需要建立分布式数据库，存储网络中域名与IP地址的映射关系数据</p>
-<ol start="3">
-<li> 域名服务器分类：</li>
-</ol>
+<h3 id="2-提交步骤"><a href="#2-提交步骤" class="headerlink" title="2.提交步骤"></a>2.提交步骤</h3><ul>
+<li><p><code>git init</code>初始化git仓库</p>
+</li>
+<li><p><code>git status</code>查看文件状态</p>
+</li>
+<li><p><code>git add 文件列表</code>追踪文件</p>
+</li>
+<li><p><code>git commit -m 提交信息</code>向本地仓库中提交代码</p>
+</li>
+<li><p><code>git log</code>查看提交记录</p>
+</li>
+<li><p><code>git push https://github.com/ovfan/git-demo.git master</code>本地仓库推送到GitHub远程仓库</p>
+</li>
+<li><p><code>git remote add origin https://github.com/ovfan/git-demo.git</code> 为远端仓库地址添加别名</p>
 <ul>
-<li>根域名服务器</li>
+<li>添加完别名后，下次推送使用<code>git push origin master</code></li>
 </ul>
+</li>
+<li><p><code>git push -u 远程仓库地址别名 分支名称</code> -u 记住推送地址及分支，下次推送只需要输入<code>git push</code>即可</p>
+</li>
+</ul>
+<h3 id="3-分支命令"><a href="#3-分支命令" class="headerlink" title="3.分支命令"></a>3.分支命令</h3><ul>
+<li><code>git branch</code> 查看本地分支</li>
+<li><code>git branch -r</code>查看远程分支</li>
+<li><code>git branch 分支名称</code>创建分支<ul>
+<li><code>git checkout -b 分支名称</code>创建并切换到新建分支</li>
+</ul>
+</li>
+<li><code>git checkout 分支名称</code>切换分支</li>
+<li><code>git merge 来源分支</code>合并分支</li>
+<li><code>git branch -d 分支名称</code>删除分支<ul>
+<li>分支被合并后才允许删除</li>
+<li><code>git branch -D</code>强制删除</li>
+</ul>
+</li>
+<li><code>git branch -m &lt;oldbranch-name&gt; &lt;newbranch-name&gt;</code>重命名分支</li>
+<li><code>git add .</code>全部上传到缓存区<ul>
+<li><code>git add 指定文件</code>指定文件上传到缓存区</li>
+</ul>
+</li>
+</ul>
+<h1 id="五、小灶"><a href="#五、小灶" class="headerlink" title="五、小灶"></a>五、小灶</h1><h3 id="1-拉取操作"><a href="#1-拉取操作" class="headerlink" title="1.拉取操作"></a>1.拉取操作</h3><ul>
+<li>克隆远端数据仓库到本地：<code>git clone 仓库地址</code></li>
+<li>拉取远程仓库中最新的版本：<code>git pull 远程仓库地址 分支名称</code></li>
+</ul>
+<h3 id="2-ssh免登录"><a href="#2-ssh免登录" class="headerlink" title="2.ssh免登录"></a>2.ssh免登录</h3><ul>
+<li>生成密钥：<code>ssh-keygen</code></li>
+<li>密钥存储目录:<code>C:\Users\shinelon\.ssh</code></li>
+<li>公钥名称：<code>id_rsa.pub</code></li>
+<li>私钥名称：<code>id_rsa</code></li>
+</ul>
+<h3 id="3-Git忽略清单"><a href="#3-Git忽略清单" class="headerlink" title="3.Git忽略清单"></a>3.Git忽略清单</h3><p>将不需要被git管理的文件名字添加到此文件中，在执行git命令的时候，git就会忽略这些文件，git忽略清单文件名称：<strong>「.gitignore」</strong></p>
+<p>参考</p>
+<blockquote>
 <ul>
-<li>顶级域名服务器</li>
-<li>权威域名服务器</li>
-<li>中间域名服务器</li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/koameBEQILNz1ViT_oB_cQ">前端fan</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Bf7uVhGiu47uOELjmC5uXQ">狂神聊Git</a></li>
 </ul>
-<ol start="4">
-<li>  域名解析过程</li>
-</ol>
-<p>递归解析：依次查询</p>
-<p><img src="/pic/jiwang/11.png" srcset="/img/loading.gif" lazyload alt="递归查询"></p>
-<p>迭代解析：直接响应结果，减轻根域名服务器的压力</p>
-<p><img src="/pic/jiwang/12.png" srcset="/img/loading.gif" lazyload alt="迭代查询"></p>
-<h2 id="四、万维网应用"><a href="#四、万维网应用" class="headerlink" title="四、万维网应用"></a>四、万维网应用</h2><ol>
-<li> 万维网结构</li>
-</ol>
-<p>Web 应用主要包括 Web 服务器、浏览器与超文本传输协议（HTTP）等部分，浏览器就是 Web 应用的客户端软件，请求首先建立TCP连接</p>
-<p>HTML 基本 Web 页也是通过 URL 地址引用页面中的其他对象，每个 URL 地址主要由<strong>两部分</strong>组成：存放对象的服务器主机域名和对象的路径名</p>
-<ol start="2">
-<li> HTTP</li>
-</ol>
-<p><img src="/pic/jiwang/13.png" srcset="/img/loading.gif" lazyload></p>
-<ol start="3">
-<li> Cookie</li>
-</ol>
-<p>Cookie 是由服务器端生成，是实现服务器对客户状态的跟踪的典型技术</p>
-<p><img src="/pic/jiwang/14.png" srcset="/img/loading.gif" lazyload alt="Cookie的工作原理"></p>
-<h2 id="五、Internet电子邮件"><a href="#五、Internet电子邮件" class="headerlink" title="五、Internet电子邮件"></a>五、Internet电子邮件</h2><p><img src="/pic/jiwang/15.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/pic/jiwang/16.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="六、FTP"><a href="#六、FTP" class="headerlink" title="六、FTP"></a>六、FTP</h2><p>文件传送协议（FTP）是在互联网的两个主机间实现文件互传的应用层协议，C/S模式，采用<strong>控制连接</strong>（21端口）传输控制命令，<strong>数据连接</strong>（20端口）传输文件内容</p>
-<p><img src="/pic/jiwang/17.png" srcset="/img/loading.gif" lazyload alt="FTP应用结构"></p>
-<h2 id="七、P2P应用"><a href="#七、P2P应用" class="headerlink" title="七、P2P应用"></a>七、P2P应用</h2><p>P2P应用的优势：充分聚集利用了端系统（对等方主机）的计算能力以及网络传输带宽，对服务器的依赖很小</p>
-<p><img src="/pic/jiwang/18.png" srcset="/img/loading.gif" lazyload alt="文件分发问题"></p>
-<h2 id="八、Socket编程基础"><a href="#八、Socket编程基础" class="headerlink" title="八、Socket编程基础"></a>八、Socket编程基础</h2><p>利用 Socket 编程技术可以开发客户/服务器网络应用程序，网络应用进程通信时需要通过<strong>API接口</strong>请求底层协议的服务，可以创建3种类型的Socket：数据报类型套接字SOCK_DGRAM（面向UDP）、流式套接字 SOCK_STREAM（面向 TCP）和原始套接字 SOCK_RAM</p>
-<p><img src="/pic/jiwang/19.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/pic/jiwang/20.png" srcset="/img/loading.gif" lazyload alt="基于TCP的Socket编程"></p>
-<p><img src="/pic/jiwang/21.png" srcset="/img/loading.gif" lazyload alt="基于UDP的Socket编程"></p>
-<h5 id="重难点回顾"><a href="#重难点回顾" class="headerlink" title="重难点回顾"></a>重难点回顾</h5><ul>
-<li>客户/服务器、P2P（Pear to Pear）两种网络应用体系结构及各自的特点</li>
-<li>DNS的概念和工作原理</li>
-<li>万维网应用结构和HTTP协议</li>
-<li>电子邮件系统结构和协议</li>
-</ul>
+</blockquote>
 
             </div>
             <hr>
@@ -312,7 +373,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
+                      <a class="hover-with-bg" href="/categories/%E8%AF%AD%E6%B3%95/">语法</a>
                     
                   </div>
                 
@@ -320,7 +381,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/">计算机网络原理</a>
+                      <a class="hover-with-bg" href="/tags/Git/">Git</a>
                     
                   </div>
                 
@@ -331,18 +392,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/10/24/Git%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Git基本语法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/">
-                        <span class="hidden-mobile">计算机网络原理（一）</span>
+                      <a href="/2021/10/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                        <span class="hidden-mobile">计算机网络原理（二）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
