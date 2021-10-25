@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>计算机网络原理（四）</title>
+    <link href="/2021/10/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <url>/2021/10/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第四章-网络层"><a href="#第四章-网络层" class="headerlink" title="第四章 网络层"></a>第四章 网络层</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络安全</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机网络原理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>计算机网络原理（三）</title>
+    <link href="/2021/10/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <url>/2021/10/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第三章-传输层"><a href="#第三章-传输层" class="headerlink" title="第三章 传输层"></a>第三章 传输层</h1><h2 id="一、传输层的基本服务"><a href="#一、传输层的基本服务" class="headerlink" title="一、传输层的基本服务"></a>一、传输层的基本服务</h2><p>1.传输层功能</p><p>传输层的<strong>核心任务</strong>是：是为应用进程之间提供端到端的逻辑通信服务</p><p>功能：传输层寻址；对应用层报文进行分段和重组；对报文进行差错检测；实现进程间端到端可靠数据传输控制；面向应用层实现复用与分解；实现端到端的流量控制；拥塞控制等</p><p>2.传输层寻址与端口</p><p>用统一的寻址方法对应用进程进行标识–<strong>端口号</strong></p><p>在全网范围内利用“<strong>IP地址+端口号</strong>”唯一标识一个通信端点（应用程序）</p><p>传输层端口号为16位整数</p><p><img src="/pic/jiwang/22.png"></p><p>3.无连接服务与面向连接服务</p><p>无连接服务是指数据传输之前无需与对端进行任何信息交换（即“握手”），直接构造传输层报文段并向接收端发送–<strong>UDP</strong></p><p>面向连接服务是指在数据传输之前，需要双方交换一些控制信息，<strong>建立逻辑连接</strong>，然后再传输数据，数据传输结束后还需要再拆除连接–<strong>TCP</strong></p><h2 id="二、传输层的复用与分解"><a href="#二、传输层的复用与分解" class="headerlink" title="二、传输层的复用与分解"></a>二、传输层的复用与分解</h2><p><img src="/pic/jiwang/23.png"></p><h2 id="三、停-等协议与滑动窗口协议"><a href="#三、停-等协议与滑动窗口协议" class="headerlink" title="三、停-等协议与滑动窗口协议"></a>三、停-等协议与滑动窗口协议</h2><p>1.可靠数据传输基本原理</p><p>不可靠传输信道在数据传输中可能发生：（1）比特差错（2）乱序（3）数据丢失</p><p>实现可靠数据传输的措施主要包括以下几种：</p><ul><li>差错检测：利用差错编码实现数据包传输过程中的比特差错检测（甚至纠正）</li><li>确认：接收方向发送方反馈接收状态</li><li>重传：发送方重新发送接收方没有正确接收的数据</li><li>序号：确保数据按序提交</li><li>计时器：解决数据丢失问题</li></ul><p>2.停-等协议</p><p>停-等协议的基本工作过程是：</p><p> 1、发送方发送经过差错编码和编号的报文段，等待接收方的确认（<strong>发送并等待确认</strong>）</p><p>2、接收方如果正确接收报文段，即差错检测无误且序号正确，则接收报文段，并 </p><p>向发送方发送 ACK，否则丢弃报文段，并向发送方发送 NAK（<strong>接收并确认/否认</strong>）</p><p>3、发送方如果收到 ACK，则继续发送后续报文段，否则重发刚刚发送的报文段（<strong>继续发送/重发</strong>）</p><p>3.滑动窗口协议</p><p>停止-等待机制<strong>降低了信道利用率</strong>，解决方法：流水线协议或管道协议–允许发送方在没有收到确认前连续发送多个分组，典型的流水线协议：<strong>滑动窗口协议</strong></p><p>流水线协议的改进：</p><ul><li>增加分组序号范围</li><li>发送方和（或）接收方必须缓存多个分组</li></ul><p>两种最具代表性的滑动窗口协议是：<strong>GBN 协议</strong>（发送窗口≥1，接收窗口=1）和 <strong>SR 协议</strong> （发送窗口和接收窗口都大于 1）</p><h2 id="四、用户数据报协议（UDP）"><a href="#四、用户数据报协议（UDP）" class="headerlink" title="四、用户数据报协议（UDP）"></a>四、用户数据报协议（UDP）</h2><p>用户数据报协议 UDP 是 Internet 传输层协议，提供无连接、不可靠、数据报尽力传输服务。UDP 与 TCP 相比，优点有：（1）应用进程更容易控制发送什么数据以及何时发送（2）无需建立连接（3）无连接状态（4）首部开销小</p><p><img src="/pic/jiwang/24.png" alt="UDP数据报结构"></p><h2 id="五、传输控制协议（TCP）"><a href="#五、传输控制协议（TCP）" class="headerlink" title="五、传输控制协议（TCP）"></a>五、传输控制协议（TCP）</h2><p>1.TCP报文段结构</p><p><img src="/pic/jiwang/25.png"></p><p>2.TCP连接管理</p><p>连接建立–三次握手</p><ul><li>SYN连接请求（同步）</li><li>SYNACK确认</li><li>ACK确认</li></ul><p><img src="/pic/jiwang/27.png" alt="建立连接--三次握手"></p><p><img src="/pic/jiwang/28.png" alt="断开连接--四次挥手"></p><p><img src="/pic/jiwang/26.png" alt="总结"></p><p>3.TCP可靠数据传输</p><p>TCP 的可靠数据传输实现机制包括差错编码、确认、序号、重传、计时器等</p><p>4.TCP流量控制</p><p>流量控制（flow control）的目的是协调协议发送方与接收方的数据发送与接收速度，避免因发送方发送数据太快，超出接收方的数据接收和处理能力，导致接收方被数据“淹没”</p><p>5.TCP拥塞控制</p><p>拥塞控制（congestion control）就是通过合理调度、规范、调整向网络中发送数据的主机数量、发送速率或数据量，以避免拥塞或尽快消除己发生的拥塞</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络安全</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机网络原理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Git基本语法</title>
     <link href="/2021/10/24/Git%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
     <url>/2021/10/24/Git%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>

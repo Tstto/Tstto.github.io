@@ -16,24 +16,28 @@
   <meta name="description" content="">
   <meta name="author" content="Tstto">
   <meta name="keywords" content="">
-  <meta name="description" content="一、版本控制1.什么是版本控制？版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本的软件工程技术，简单说就是用于管理多人协同开发项目的技术 2.常见的版本控制工具Git、SVM、CVS、VSS、TFS… 3.版本控制分类 本地版本控制  记录文件每次的更新，可以对每个版本做一个快照，或是记录">
+  <meta name="description" content="第三章 传输层一、传输层的基本服务1.传输层功能 传输层的核心任务是：是为应用进程之间提供端到端的逻辑通信服务 功能：传输层寻址；对应用层报文进行分段和重组；对报文进行差错检测；实现进程间端到端可靠数据传输控制；面向应用层实现复用与分解；实现端到端的流量控制；拥塞控制等 2.传输层寻址与端口 用统一的寻址方法对应用进程进行标识–端口号 在全网范围内利用“IP地址+端口号”唯一标识一个通信端点（应用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git基本语法">
-<meta property="og:url" content="http://example.com/2021/10/24/Git%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:title" content="计算机网络原理（三）">
+<meta property="og:url" content="http://example.com/2021/10/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%89%EF%BC%89/index.html">
 <meta property="og:site_name" content="Tstto&#39;s Blog">
-<meta property="og:description" content="一、版本控制1.什么是版本控制？版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本的软件工程技术，简单说就是用于管理多人协同开发项目的技术 2.常见的版本控制工具Git、SVM、CVS、VSS、TFS… 3.版本控制分类 本地版本控制  记录文件每次的更新，可以对每个版本做一个快照，或是记录">
+<meta property="og:description" content="第三章 传输层一、传输层的基本服务1.传输层功能 传输层的核心任务是：是为应用进程之间提供端到端的逻辑通信服务 功能：传输层寻址；对应用层报文进行分段和重组；对报文进行差错检测；实现进程间端到端可靠数据传输控制；面向应用层实现复用与分解；实现端到端的流量控制；拥塞控制等 2.传输层寻址与端口 用统一的寻址方法对应用进程进行标识–端口号 在全网范围内利用“IP地址+端口号”唯一标识一个通信端点（应用">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/pic/Git/1.png">
-<meta property="og:image" content="http://example.com/pic/Git/2.jpg">
-<meta property="og:image" content="http://example.com/pic/Git/3.jpg">
-<meta property="article:published_time" content="2021-10-24T13:09:34.000Z">
-<meta property="article:modified_time" content="2021-10-24T14:54:29.718Z">
+<meta property="og:image" content="http://example.com/pic/jiwang/22.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/23.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/24.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/25.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/27.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/28.png">
+<meta property="og:image" content="http://example.com/pic/jiwang/26.png">
+<meta property="article:published_time" content="2021-10-25T02:33:31.000Z">
+<meta property="article:modified_time" content="2021-10-25T06:21:21.623Z">
 <meta property="article:author" content="Tstto">
-<meta property="article:tag" content="Git">
+<meta property="article:tag" content="计算机网络原理">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/pic/Git/1.png">
+<meta name="twitter:image" content="http://example.com/pic/jiwang/22.png">
   
-  <title>Git基本语法 - Tstto&#39;s Blog</title>
+  <title>计算机网络原理（三） - Tstto&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -167,7 +171,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Git基本语法">
+            <span class="h2" id="subtitle" title="计算机网络原理（三）">
               
             </span>
 
@@ -177,8 +181,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-24 21:09" pubdate>
-        2021年10月24日 晚上
+      <time datetime="2021-10-25 10:33" pubdate>
+        2021年10月25日 上午
       </time>
     </span>
   
@@ -188,7 +192,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      1.3k 字
     </span>
   
 
@@ -197,7 +201,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      4 分钟
     </span>
   
 
@@ -226,144 +230,65 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Git基本语法</h1>
+            <h1 style="display: none">计算机网络原理（三）</h1>
             
             <div class="markdown-body">
-              <p><img src="/pic/Git/1.png" srcset="/img/loading.gif" lazyload alt="脑图"></p>
-<h1 id="一、版本控制"><a href="#一、版本控制" class="headerlink" title="一、版本控制"></a>一、版本控制</h1><h3 id="1-什么是版本控制？"><a href="#1-什么是版本控制？" class="headerlink" title="1.什么是版本控制？"></a>1.什么是版本控制？</h3><p>版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本的软件工程技术，简单说就是用于管理多人协同开发项目的技术</p>
-<h3 id="2-常见的版本控制工具"><a href="#2-常见的版本控制工具" class="headerlink" title="2.常见的版本控制工具"></a>2.常见的版本控制工具</h3><p>Git、SVM、CVS、VSS、TFS…</p>
-<h3 id="3-版本控制分类"><a href="#3-版本控制分类" class="headerlink" title="3.版本控制分类"></a>3.版本控制分类</h3><ul>
-<li>本地版本控制</li>
-</ul>
-<p>记录文件每次的更新，可以对每个版本做一个快照，或是记录补丁文件，适合个人用，如RCS</p>
+              <h1 id="第三章-传输层"><a href="#第三章-传输层" class="headerlink" title="第三章 传输层"></a>第三章 传输层</h1><h2 id="一、传输层的基本服务"><a href="#一、传输层的基本服务" class="headerlink" title="一、传输层的基本服务"></a>一、传输层的基本服务</h2><p>1.传输层功能</p>
+<p>传输层的<strong>核心任务</strong>是：是为应用进程之间提供端到端的逻辑通信服务</p>
+<p>功能：传输层寻址；对应用层报文进行分段和重组；对报文进行差错检测；实现进程间端到端可靠数据传输控制；面向应用层实现复用与分解；实现端到端的流量控制；拥塞控制等</p>
+<p>2.传输层寻址与端口</p>
+<p>用统一的寻址方法对应用进程进行标识–<strong>端口号</strong></p>
+<p>在全网范围内利用“<strong>IP地址+端口号</strong>”唯一标识一个通信端点（应用程序）</p>
+<p>传输层端口号为16位整数</p>
+<p><img src="/pic/jiwang/22.png" srcset="/img/loading.gif" lazyload></p>
+<p>3.无连接服务与面向连接服务</p>
+<p>无连接服务是指数据传输之前无需与对端进行任何信息交换（即“握手”），直接构造传输层报文段并向接收端发送–<strong>UDP</strong></p>
+<p>面向连接服务是指在数据传输之前，需要双方交换一些控制信息，<strong>建立逻辑连接</strong>，然后再传输数据，数据传输结束后还需要再拆除连接–<strong>TCP</strong></p>
+<h2 id="二、传输层的复用与分解"><a href="#二、传输层的复用与分解" class="headerlink" title="二、传输层的复用与分解"></a>二、传输层的复用与分解</h2><p><img src="/pic/jiwang/23.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="三、停-等协议与滑动窗口协议"><a href="#三、停-等协议与滑动窗口协议" class="headerlink" title="三、停-等协议与滑动窗口协议"></a>三、停-等协议与滑动窗口协议</h2><p>1.可靠数据传输基本原理</p>
+<p>不可靠传输信道在数据传输中可能发生：（1）比特差错（2）乱序（3）数据丢失</p>
+<p>实现可靠数据传输的措施主要包括以下几种：</p>
 <ul>
-<li>集中版本控制（SVM）</li>
+<li>差错检测：利用差错编码实现数据包传输过程中的比特差错检测（甚至纠正）</li>
+<li>确认：接收方向发送方反馈接收状态</li>
+<li>重传：发送方重新发送接收方没有正确接收的数据</li>
+<li>序号：确保数据按序提交</li>
+<li>计时器：解决数据丢失问题</li>
 </ul>
-<p>所有的版本数据都保存在服务器上，协同开发者从服务器上同步更新或上传自己的修改，如果不连网的话，用户就看不到历史版本，也无法切换版本验证问题，或在不同分支工作，如SVN、CVS、VSS</p>
+<p>2.停-等协议</p>
+<p>停-等协议的基本工作过程是：</p>
+<p> 1、发送方发送经过差错编码和编号的报文段，等待接收方的确认（<strong>发送并等待确认</strong>）</p>
+<p>2、接收方如果正确接收报文段，即差错检测无误且序号正确，则接收报文段，并 </p>
+<p>向发送方发送 ACK，否则丢弃报文段，并向发送方发送 NAK（<strong>接收并确认/否认</strong>）</p>
+<p>3、发送方如果收到 ACK，则继续发送后续报文段，否则重发刚刚发送的报文段（<strong>继续发送/重发</strong>）</p>
+<p>3.滑动窗口协议</p>
+<p>停止-等待机制<strong>降低了信道利用率</strong>，解决方法：流水线协议或管道协议–允许发送方在没有收到确认前连续发送多个分组，典型的流水线协议：<strong>滑动窗口协议</strong></p>
+<p>流水线协议的改进：</p>
 <ul>
-<li>分布式版本控制（Git）</li>
+<li>增加分组序号范围</li>
+<li>发送方和（或）接收方必须缓存多个分组</li>
 </ul>
-<p>所有版本信息仓库全部同步到本地的每个用户，这样就可以在本地查看所有版本历史，可以离线在本地提交，只需在连网时push到相应的服务器或其他用户那里</p>
-<h1 id="二、常用的Linux命令"><a href="#二、常用的Linux命令" class="headerlink" title="二、常用的Linux命令"></a>二、常用的Linux命令</h1><ul>
-<li>cd：改变目录<ul>
-<li>cd..：回退到上一个目录，直接cd进入默认目录</li>
-</ul>
-</li>
-<li>pwd：显示当前所在的目录路径</li>
-<li>ls（ll）：都是列出当前目录中的所有文件，只不过ll（两个ll）列出的内容更详细</li>
-<li>touch : 新建一个文件如 touch index.js，就会在当前目录下新建一个index.js文件</li>
-<li>mkdir:  新建一个目录，就是新建一个文件夹</li>
-<li>rm:  删除一个文件，rm index.js 就会把index.js文件删除<ul>
-<li>rm -r :  删除一个文件夹，rm -r src 删除src目录</li>
-<li>rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！（f迭代，/根目录）</li>
-</ul>
-</li>
-<li>mv：移动文件, mv index.html src，index.html 是我们要移动的文件,，src 是目标文件夹， 这样写必须保证文件和目标文件夹在同一目录下</li>
-<li>reset：重新初始化终端/清屏</li>
-<li>clear 清屏</li>
-<li>history 查看命令历史</li>
-<li>help 帮助</li>
-<li>exit 退出</li>
-<li>“#”表示注释</li>
-</ul>
-<h1 id="三、Git基本概念"><a href="#三、Git基本概念" class="headerlink" title="三、Git基本概念"></a>三、Git基本概念</h1><p><img src="/pic/Git/2.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>两种最具代表性的滑动窗口协议是：<strong>GBN 协议</strong>（发送窗口≥1，接收窗口=1）和 <strong>SR 协议</strong> （发送窗口和接收窗口都大于 1）</p>
+<h2 id="四、用户数据报协议（UDP）"><a href="#四、用户数据报协议（UDP）" class="headerlink" title="四、用户数据报协议（UDP）"></a>四、用户数据报协议（UDP）</h2><p>用户数据报协议 UDP 是 Internet 传输层协议，提供无连接、不可靠、数据报尽力传输服务。UDP 与 TCP 相比，优点有：（1）应用进程更容易控制发送什么数据以及何时发送（2）无需建立连接（3）无连接状态（4）首部开销小</p>
+<p><img src="/pic/jiwang/24.png" srcset="/img/loading.gif" lazyload alt="UDP数据报结构"></p>
+<h2 id="五、传输控制协议（TCP）"><a href="#五、传输控制协议（TCP）" class="headerlink" title="五、传输控制协议（TCP）"></a>五、传输控制协议（TCP）</h2><p>1.TCP报文段结构</p>
+<p><img src="/pic/jiwang/25.png" srcset="/img/loading.gif" lazyload></p>
+<p>2.TCP连接管理</p>
+<p>连接建立–三次握手</p>
 <ul>
-<li><p>工作区</p>
-<ul>
-<li>本地项目存放文件的位置，即workspace</li>
+<li>SYN连接请求（同步）</li>
+<li>SYNACK确认</li>
+<li>ACK确认</li>
 </ul>
-</li>
-<li><p>暂存区(Index/Stage)</p>
-<ul>
-<li>暂时存放文件的地方，通过<strong>add</strong>命令将工作区的文件加到缓冲区</li>
-</ul>
-</li>
-<li><p>本地仓库(Repository)</p>
-<ul>
-<li>通常情况下，我们使用<strong>commit</strong>命令可以将暂存区的文件添加到本地仓库</li>
-<li>通常而言，HEAD指针指向的是master分支</li>
-</ul>
-</li>
-<li><p>远程仓库(Remote)</p>
-<ul>
-<li>GitHub托管项目时，它就是一个远程仓库</li>
-<li>通常我们使用clone命令将远程仓库代码拷贝下来，本地代码更新后，通过<strong>push</strong>推送到远程仓库</li>
-</ul>
-</li>
-</ul>
-<p><img src="/pic/Git/3.jpg" srcset="/img/loading.gif" lazyload alt="基本工作流程"></p>
-<h1 id="四、Git进阶"><a href="#四、Git进阶" class="headerlink" title="四、Git进阶"></a>四、Git进阶</h1><h3 id="1-Git使用前配置"><a href="#1-Git使用前配置" class="headerlink" title="1.Git使用前配置"></a>1.Git使用前配置</h3><p>在使用git前，需要告诉git你是谁，在向git仓库中提交时需要用到。</p>
-<ol>
-<li>配置提交人姓名:<code>git config --global user.name 提交人姓名</code></li>
-<li>配置提交人邮箱:<code>git config --global user.email 提交人邮箱</code></li>
-<li>查看git配置信息:<code>git config --list</code></li>
-</ol>
-<blockquote>
-<p><strong>注意</strong></p>
-</blockquote>
-<ul>
-<li>如果要对配置信息进行修改，重复上述命令即可</li>
-<li>配置只需要执行一次。</li>
-</ul>
-<h3 id="2-提交步骤"><a href="#2-提交步骤" class="headerlink" title="2.提交步骤"></a>2.提交步骤</h3><ul>
-<li><p><code>git init</code>初始化git仓库</p>
-</li>
-<li><p><code>git status</code>查看文件状态</p>
-</li>
-<li><p><code>git add 文件列表</code>追踪文件</p>
-</li>
-<li><p><code>git commit -m 提交信息</code>向本地仓库中提交代码</p>
-</li>
-<li><p><code>git log</code>查看提交记录</p>
-</li>
-<li><p><code>git push https://github.com/ovfan/git-demo.git master</code>本地仓库推送到GitHub远程仓库</p>
-</li>
-<li><p><code>git remote add origin https://github.com/ovfan/git-demo.git</code> 为远端仓库地址添加别名</p>
-<ul>
-<li>添加完别名后，下次推送使用<code>git push origin master</code></li>
-</ul>
-</li>
-<li><p><code>git push -u 远程仓库地址别名 分支名称</code> -u 记住推送地址及分支，下次推送只需要输入<code>git push</code>即可</p>
-</li>
-</ul>
-<h3 id="3-分支命令"><a href="#3-分支命令" class="headerlink" title="3.分支命令"></a>3.分支命令</h3><ul>
-<li><code>git branch</code> 查看本地分支</li>
-<li><code>git branch -r</code>查看远程分支</li>
-<li><code>git branch 分支名称</code>创建分支<ul>
-<li><code>git checkout -b 分支名称</code>创建并切换到新建分支</li>
-</ul>
-</li>
-<li><code>git checkout 分支名称</code>切换分支</li>
-<li><code>git merge 来源分支</code>合并分支</li>
-<li><code>git branch -d 分支名称</code>删除分支<ul>
-<li>分支被合并后才允许删除</li>
-<li><code>git branch -D</code>强制删除</li>
-</ul>
-</li>
-<li><code>git branch -m &lt;oldbranch-name&gt; &lt;newbranch-name&gt;</code>重命名分支</li>
-<li><code>git add .</code>全部上传到缓存区<ul>
-<li><code>git add 指定文件</code>指定文件上传到缓存区</li>
-</ul>
-</li>
-</ul>
-<h1 id="五、小灶"><a href="#五、小灶" class="headerlink" title="五、小灶"></a>五、小灶</h1><h3 id="1-拉取操作"><a href="#1-拉取操作" class="headerlink" title="1.拉取操作"></a>1.拉取操作</h3><ul>
-<li>克隆远端数据仓库到本地：<code>git clone 仓库地址</code></li>
-<li>拉取远程仓库中最新的版本：<code>git pull 远程仓库地址 分支名称</code></li>
-</ul>
-<h3 id="2-ssh免登录"><a href="#2-ssh免登录" class="headerlink" title="2.ssh免登录"></a>2.ssh免登录</h3><ul>
-<li>生成密钥：<code>ssh-keygen</code></li>
-<li>密钥存储目录:<code>C:\Users\shinelon\.ssh</code></li>
-<li>公钥名称：<code>id_rsa.pub</code></li>
-<li>私钥名称：<code>id_rsa</code></li>
-</ul>
-<h3 id="3-Git忽略清单"><a href="#3-Git忽略清单" class="headerlink" title="3.Git忽略清单"></a>3.Git忽略清单</h3><p>将不需要被git管理的文件名字添加到此文件中，在执行git命令的时候，git就会忽略这些文件，git忽略清单文件名称：<strong>「.gitignore」</strong></p>
-<p>参考</p>
-<blockquote>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/koameBEQILNz1ViT_oB_cQ">前端fan</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Bf7uVhGiu47uOELjmC5uXQ">狂神聊Git</a></li>
-</ul>
-</blockquote>
+<p><img src="/pic/jiwang/27.png" srcset="/img/loading.gif" lazyload alt="建立连接--三次握手"></p>
+<p><img src="/pic/jiwang/28.png" srcset="/img/loading.gif" lazyload alt="断开连接--四次挥手"></p>
+<p><img src="/pic/jiwang/26.png" srcset="/img/loading.gif" lazyload alt="总结"></p>
+<p>3.TCP可靠数据传输</p>
+<p>TCP 的可靠数据传输实现机制包括差错编码、确认、序号、重传、计时器等</p>
+<p>4.TCP流量控制</p>
+<p>流量控制（flow control）的目的是协调协议发送方与接收方的数据发送与接收速度，避免因发送方发送数据太快，超出接收方的数据接收和处理能力，导致接收方被数据“淹没”</p>
+<p>5.TCP拥塞控制</p>
+<p>拥塞控制（congestion control）就是通过合理调度、规范、调整向网络中发送数据的主机数量、发送速率或数据量，以避免拥塞或尽快消除己发生的拥塞</p>
 
             </div>
             <hr>
@@ -373,7 +298,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E8%AF%AD%E6%B3%95/">语法</a>
+                      <a class="hover-with-bg" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
                     
                   </div>
                 
@@ -381,7 +306,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Git/">Git</a>
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/">计算机网络原理</a>
                     
                   </div>
                 
@@ -392,9 +317,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/10/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%89%EF%BC%89/">
+                      <a href="/2021/10/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E5%9B%9B%EF%BC%89/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">计算机网络原理（三）</span>
+                        <span class="hidden-mobile">计算机网络原理（四）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -402,8 +327,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%BA%8C%EF%BC%89/">
-                        <span class="hidden-mobile">计算机网络原理（二）</span>
+                      <a href="/2021/10/24/Git%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
+                        <span class="hidden-mobile">Git基本语法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
