@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>计算机网路原理（六）</title>
+    <link href="/2021/10/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF%E5%8E%9F%E7%90%86%EF%BC%88%E5%85%AD%EF%BC%89/"/>
+    <url>/2021/10/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF%E5%8E%9F%E7%90%86%EF%BC%88%E5%85%AD%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第六章-物理层"><a href="#第六章-物理层" class="headerlink" title="第六章 物理层"></a>第六章 物理层</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络安全</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机网络原理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>计算机网络原理（五）</title>
+    <link href="/2021/10/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%BA%94%EF%BC%89/"/>
+    <url>/2021/10/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%BA%94%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第五章-数据链路层与局域网"><a href="#第五章-数据链路层与局域网" class="headerlink" title="第五章 数据链路层与局域网"></a>第五章 数据链路层与局域网</h1><h2 id="一、数据链路层服务"><a href="#一、数据链路层服务" class="headerlink" title="一、数据链路层服务"></a>一、数据链路层服务</h2><p>链路：通信链路连接的相邻结点的通信信道</p><p>数据链路层传输的数据单元称为<strong>帧</strong>。数据链路层通常提供以下几点服务：</p><p>1）组帧（加上帧头，帧尾）</p><p>2）链路接入：点对点链路、广播链路</p><p>3）可靠交付</p><p>4）差错控制</p><h2 id="二、差错控制"><a href="#二、差错控制" class="headerlink" title="二、差错控制"></a>二、差错控制</h2><p>1.差错控制的四种基本方式</p><ul><li>检错重发</li><li>前向纠错（接收端进行差错纠正）</li><li>反馈校验（接收端将收到的数据原封不动发回发送端）</li><li>检错丢弃</li></ul><p>2.差错编码的基本原理</p><p><strong>香农信道编码定理</strong>：理论上可以通过编码使得数据传输过程不发生错误，或者将错误概率控制在很小的数值之下</p><p>3.差错编码的检错与纠错能力</p><p><strong>汉明距离</strong>：两个等长码字之间，对应位不同的位数</p><p>编码集的汉明距离：该编码集中任意两个码字之间汉明距离的最小值</p><p>差错编码的检错或纠错能力跟该差错编码的编码集的汉明距离有关</p><p>1）对于检错编码，如果编码集的汉明距离 ds=r+1,则该差错编码可以检测 r 位的差错</p><p>2）对于纠错编码，如果编码集的汉明距离 ds=2r+1,,则该差错编码可以纠正 r 位的差错</p><p>4.典型的差错编码</p><p><img src="/pic/jiwang/35.png"></p><p><img src="/pic/jiwang/39.png" alt="CRC解题思路"></p><h2 id="三、多路访问控制协议"><a href="#三、多路访问控制协议" class="headerlink" title="三、多路访问控制协议"></a>三、多路访问控制协议</h2><p>多路访问控制MAC：广播信道上用于协调各个结点的数据发送</p><p><img src="/pic/jiwang/36.png"></p><p><img src="/pic/jiwang/37.png"></p><h2 id="四、局域网"><a href="#四、局域网" class="headerlink" title="四、局域网"></a>四、局域网</h2><p>1.数据链路层寻址与 ARP</p><p>MAC地址：每个接口对应一个MAC地址，且全球唯一（应用层域名、传输层端口、网络层IP地址、数据链路层MAC地址，都唯一且互不冒犯），长度48位</p><p>地址解析协议（ARP）：根据本网内目的主机或默认网关的 IP 地址获取其 MAC 地址（查询/响应的<strong>广播</strong>方式）</p><p>2.以太网</p><p>以太网采用 CSMA/CD 控制访问方法</p><p>以太网技术：（1）10Base-T 以太网–10兆 基带传输 双绞线/距离（2）快速以太网（3）千兆位以太网（4）万兆位 </p><p>以太网</p><p>3.交换机</p><p>采用转发与过滤的方式，避免广播形式出现的碰撞，交换机通过<strong>自学习</strong>构建交换表</p><p>交换机就是<strong>多端口网桥</strong>，是目前应用最广泛的数据链路层设备</p><p>交换机的优点是：消除冲突、支持异质链路、易于进行网络管理</p><p>4.虚拟局域网（VLAN）</p><p>虚拟局域网是一种基于交换机（必须支持 VLAN 功能）的逻辑分割广播域的局域网应用形式（能够抑制广播风暴）</p><p><img src="/pic/jiwang/38.png"></p><p>划分虚拟局域网的方法主要有三种：基于交换机端口划分、基于 MAC 地址划分、基于上层 协议类型或地址划分</p><h2 id="五、点对点链路协议"><a href="#五、点对点链路协议" class="headerlink" title="五、点对点链路协议"></a>五、点对点链路协议</h2><p>1.点对点协议（PPP）</p><p>PPP 能够处理差错检测、支持多种上层协议（即支持复用）、允许在连接时刻协商 IP 地址、允许身份认证等</p><p>典型应用：拨号上网</p><p>功能：成帧、链路控制协议LCP、网络控制协议NCP</p><p>2.高级数据链路控制协议（HDLC）</p><p>可应用与点对点链路和点对多点链路</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络安全</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机网络原理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>计算机网络原理（四）</title>
     <link href="/2021/10/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
     <url>/2021/10/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
