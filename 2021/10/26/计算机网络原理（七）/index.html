@@ -16,15 +16,15 @@
   <meta name="description" content="">
   <meta name="author" content="Tstto">
   <meta name="keywords" content="">
-  <meta name="description" content="第七章 无线与移动网络">
+  <meta name="description" content="第七章 无线与移动网络一、无线网络1.无线网络基本结构  无线网络主要包括：无线主机、无线链路、基站、网络基础设施 Ad Hoc 自组织网络无线主机不通过基站（即没有基站），直接与另一个无线主机直接通信。自组织网络没有基站、无线主机，也不与网络基础设施相连，因此，主机本身必须提供诸如路由选择、地址分配等服务。故 Ad Hoc 网络中的每个节点都兼有路由器和主机两种功能 2.无线链路与无线网络特性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络原理（七）">
 <meta property="og:url" content="http://example.com/2021/10/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%83%EF%BC%89/index.html">
 <meta property="og:site_name" content="Tstto&#39;s Blog">
-<meta property="og:description" content="第七章 无线与移动网络">
+<meta property="og:description" content="第七章 无线与移动网络一、无线网络1.无线网络基本结构  无线网络主要包括：无线主机、无线链路、基站、网络基础设施 Ad Hoc 自组织网络无线主机不通过基站（即没有基站），直接与另一个无线主机直接通信。自组织网络没有基站、无线主机，也不与网络基础设施相连，因此，主机本身必须提供诸如路由选择、地址分配等服务。故 Ad Hoc 网络中的每个节点都兼有路由器和主机两种功能 2.无线链路与无线网络特性">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-26T04:44:19.000Z">
-<meta property="article:modified_time" content="2021-10-26T04:46:08.682Z">
+<meta property="article:modified_time" content="2021-10-26T05:53:20.359Z">
 <meta property="article:author" content="Tstto">
 <meta property="article:tag" content="计算机网络原理">
 <meta name="twitter:card" content="summary_large_image">
@@ -184,7 +184,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      10 字
+      910 字
     </span>
   
 
@@ -193,7 +193,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      3 分钟
     </span>
   
 
@@ -225,7 +225,37 @@
             <h1 style="display: none">计算机网络原理（七）</h1>
             
             <div class="markdown-body">
-              <h1 id="第七章-无线与移动网络"><a href="#第七章-无线与移动网络" class="headerlink" title="第七章 无线与移动网络"></a>第七章 无线与移动网络</h1>
+              <h1 id="第七章-无线与移动网络"><a href="#第七章-无线与移动网络" class="headerlink" title="第七章 无线与移动网络"></a>第七章 无线与移动网络</h1><h2 id="一、无线网络"><a href="#一、无线网络" class="headerlink" title="一、无线网络"></a>一、无线网络</h2><p>1.无线网络基本结构 </p>
+<p>无线网络主要包括：无线主机、无线链路、基站、网络基础设施</p>
+<p>Ad Hoc 自组织网络无线主机不通过基站（即没有基站），直接与另一个无线主机直接通信。自组织网络没有基站、无线主机，也不与网络基础设施相连，因此，主机本身必须提供诸如路由选择、地址分配等服务。故 Ad Hoc 网络中的每个节点都兼有路由器和主机两种功能</p>
+<p>2.无线链路与无线网络特性</p>
+<p>无线链路有别于有线链路的主要表现在以下方面：信号强度的衰减、干扰、多径传播、隐藏终端（检测不到碰撞）</p>
+<h2 id="二、移动网络"><a href="#二、移动网络" class="headerlink" title="二、移动网络"></a>二、移动网络</h2><p>无线网络不一定是移动网络、但移动网络一定是无线网络。移动网络中的移动结点是随时间改变其与网络连接位置的结点，并且移动采用无线通信技术 </p>
+<p>1.寻址 </p>
+<ul>
+<li>外部网络可以通过向所有其他网络发通告，告诉它们该移动结点正在它的网络中</li>
+<li>将移动网络功能从网络核心搬到网络边缘，由该移动结点的<strong>归属网络</strong>来实现</li>
+</ul>
+<p>2.移动结点的路由选择 </p>
+<ul>
+<li>间接路由选择：由归属代理转发数据给外部代理</li>
+<li>直接路由选择：由通信代理通过归属代理获得转交地址，直接发送到外部代理</li>
+</ul>
+<h2 id="三、无线局域网IEEE-802-11"><a href="#三、无线局域网IEEE-802-11" class="headerlink" title="三、无线局域网IEEE 802.11"></a>三、无线局域网IEEE 802.11</h2><p>1.IEEE802.11 体系结构 </p>
+<p>基站（AP）和基本服务集（BSS）</p>
+<p>2.IEEE 802.11 的 MAC协议</p>
+<p>IEEE 802.11 的 MAC 协议采用 CSMA/CA 协议（带碰撞避免的CSMA）</p>
+<p>3.IEEE 802.11 帧</p>
+<p>IEEE 802.11 帧共有 3 种类型：控制帧、数据帧和管理帧。IEEE 802.11 数据帧结构：MAC首部（30 字节）、帧主体、尾部（FCS）</p>
+<h2 id="四、蜂窝网络"><a href="#四、蜂窝网络" class="headerlink" title="四、蜂窝网络"></a>四、蜂窝网络</h2><p>蜂窝网络体系结构</p>
+<p>基站系统BSS：基站控制器、收发基站</p>
+<p>移动交换中心MSC</p>
+<p>网关MSC</p>
+<h2 id="五、移动IP网络"><a href="#五、移动IP网络" class="headerlink" title="五、移动IP网络"></a>五、移动IP网络</h2><p>移动 IP 标准由 3 部分组成：代理发现、向归属代理注册以及数据报的间接路由选择</p>
+<h2 id="六、其他典型无线网络简介"><a href="#六、其他典型无线网络简介" class="headerlink" title="六、其他典型无线网络简介"></a>六、其他典型无线网络简介</h2><p>WiMax 全球微波互联接入(WiMax)称为 IEEE 802.16 标准，目的是在更大范围内为用户提供可以媲美有线网络的无线通信解决方案</p>
+<p>蓝牙 IEEE 802.15.1 网络以小范围、低功率和低成本运行</p>
+<p>ZigBee IEEE 第二个个人区域网络标准是 IEEE 802.15.4，称为 ZigBee。ZigBee 主要以低功率、低数据速率、低工作周期应用为目标</p>
+
             </div>
             <hr>
             <div>
