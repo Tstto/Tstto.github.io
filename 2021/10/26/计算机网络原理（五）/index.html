@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://example.com/pic/jiwang/37.png">
 <meta property="og:image" content="http://example.com/pic/jiwang/38.png">
 <meta property="article:published_time" content="2021-10-26T01:04:05.000Z">
-<meta property="article:modified_time" content="2021-10-26T02:52:50.474Z">
+<meta property="article:modified_time" content="2021-10-26T03:00:42.783Z">
 <meta property="article:author" content="Tstto">
 <meta property="article:tag" content="计算机网络原理">
 <meta name="twitter:card" content="summary_large_image">
@@ -190,7 +190,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      1.2k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      4 分钟
     </span>
   
 
@@ -279,6 +279,7 @@
 <p>功能：成帧、链路控制协议LCP、网络控制协议NCP</p>
 <p>2.高级数据链路控制协议（HDLC）</p>
 <p>可应用与点对点链路和点对多点链路</p>
+<p>原理：HDLC 协议是面向位的协议，为确保数据的透明传输，HDLC 使用<strong>位填充</strong>。首先，发送端扫描整个数据字段，只要发现 5 个连续的 1，就立即插入一个 0。接收端接收一个帧后，先找到标志字段确定帧的边界，接着利用硬件扫描整个比特流，当发现 5 个连续的 1，就删除其后的 0，以还原原来的信息</p>
 
             </div>
             <hr>
