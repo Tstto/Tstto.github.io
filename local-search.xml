@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>React全家桶（二）</title>
+    <link href="/2021/10/29/React%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <url>/2021/10/29/React%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第二章-React面向组件编程"><a href="#第二章-React面向组件编程" class="headerlink" title="第二章 React面向组件编程"></a>第二章 React面向组件编程</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>React</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>React全家桶（一）</title>
+    <link href="/2021/10/29/React%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <url>/2021/10/29/React%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第一章-React入门"><a href="#第一章-React入门" class="headerlink" title="第一章 React入门"></a>第一章 React入门</h1><h2 id="1-1-React简介"><a href="#1-1-React简介" class="headerlink" title="1.1 React简介"></a>1.1 React简介</h2><h5 id="1-1-1介绍描述"><a href="#1-1-1介绍描述" class="headerlink" title="1.1.1介绍描述"></a>1.1.1介绍描述</h5><p>用于动态构建用户界面的 JavaScript 库(只关注于视图)，也可以说是一个将数据动态渲染为HTML视图的开源JavaScript库</p><h5 id="1-1-2-React的特点"><a href="#1-1-2-React的特点" class="headerlink" title="1.1.2 React的特点"></a>1.1.2 React的特点</h5><ol><li>声明式编码（与命令式相对）</li><li>组件化编码（可拆分html、css、js）</li><li>React Native编写原生应用，可进行移动端开发<ol><li>使用<strong>虚拟DOM</strong>+优秀的<strong>Diffing算法</strong>，尽量减少与真实DOM的交互（不总是直接操作页面真实DOM，最小化页面重绘）</li></ol></li></ol><h2 id="1-2React的基本使用"><a href="#1-2React的基本使用" class="headerlink" title="1.2React的基本使用"></a>1.2React的基本使用</h2><h5 id="1-2-1相关js库"><a href="#1-2-1相关js库" class="headerlink" title="1.2.1相关js库"></a>1.2.1相关js库</h5><ol><li>react.development.js：React核心库</li><li>react-dom.development.js：提供操作DOM的react扩展库</li><li>babel.min.js：解析JSX语法代码转为JS代码的库（也有ES6转换为ES5）</li></ol><h5 id="1-2-2创建虚拟DOM的两种方式"><a href="#1-2-2创建虚拟DOM的两种方式" class="headerlink" title="1.2.2创建虚拟DOM的两种方式"></a>1.2.2创建虚拟DOM的两种方式</h5><ol><li>纯JS方式（利用React里面的API，React.createElement)</li><li>JSX方式（需要引入babel翻译）</li></ol><h2 id="1-3React-JSX"><a href="#1-3React-JSX" class="headerlink" title="1.3React JSX"></a>1.3React JSX</h2><p>全称：JavaScript XML</p><p>基本语法规则：</p><ol><li>定义虚拟DOM，不要写引号</li><li>标签中混入JS表达式时要用{ }</li><li>样式的类名指定不要用class，用className</li><li>内联样式，要用style=的形式去写</li><li>只有一个根标签</li><li>标签必须闭合</li><li>标签首字母</li></ol><p>（1）若小写字母开头，则将该标签转为html中同名元素，若无则报错</p><p>（2）若大写字母开头，React会去渲染对应的组件，若组件没有定义则报错</p><h2 id="1-4模块与组件"><a href="#1-4模块与组件" class="headerlink" title="1.4模块与组件"></a>1.4模块与组件</h2><p>模块：向外提供特定功能的js程序，一般就是一个js文件</p><p>组件：用来实现局部功能效果的代码和资源的集合（html/css/js/image等等）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>React</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>计算机网络原理（八）</title>
     <link href="/2021/10/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E5%85%AB%EF%BC%89/"/>
     <url>/2021/10/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%EF%BC%88%E5%85%AB%EF%BC%89/</url>
