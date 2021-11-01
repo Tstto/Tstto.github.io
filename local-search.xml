@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>React全家桶（三）</title>
+    <link href="/2021/11/01/React%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <url>/2021/11/01/React%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第三章-React应用（基于React脚手架）"><a href="#第三章-React应用（基于React脚手架）" class="headerlink" title="第三章 React应用（基于React脚手架）"></a>第三章 React应用（基于React脚手架）</h1><h2 id="3-1-使用create-react-app创建react应用"><a href="#3-1-使用create-react-app创建react应用" class="headerlink" title="3.1. 使用create-react-app创建react应用"></a>3.1. 使用create-react-app创建react应用</h2><h5 id="3-1-1-react脚手架"><a href="#3-1-1-react脚手架" class="headerlink" title="3.1.1. react脚手架"></a>3.1.1. react脚手架</h5><ol><li>xxx脚手架: 用来帮助程序员快速创建一个基于xxx库的模板项目</li></ol><ul><li>包含了所有需要的配置（语法检查、jsx编译、devServer…）</li><li>下载好了所有相关的依赖</li><li>可以直接运行一个简单效果</li></ul><ol start="2"><li>react提供了一个用于创建react项目的脚手架库: create-react-app</li><li>项目的整体技术架构为:  react + webpack + es6 + eslint</li><li>使用脚手架开发的项目的特点: 模块化, 组件化, 工程化（一条龙服务）</li></ol><h5 id="3-1-2-创建项目并启动"><a href="#3-1-2-创建项目并启动" class="headerlink" title="3.1.2.创建项目并启动"></a>3.1.2.创建项目并启动</h5><p><strong>第一步</strong>，全局安装：npm i -g create-react-app</p><p><strong>第二步</strong>，切换到想创项目的目录，使用命令：create-react-app react_staging</p><p><strong>第三步</strong>，进入项目文件夹：cd react_staging</p><p><strong>第四步</strong>，启动项目：npm start</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>React</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>React全家桶（二）</title>
     <link href="/2021/10/29/React%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <url>/2021/10/29/React%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
