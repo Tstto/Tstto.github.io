@@ -16,15 +16,15 @@
   <meta name="description" content="">
   <meta name="author" content="Tstto">
   <meta name="keywords" content="">
-  <meta name="description" content="第四章 React ajax">
+  <meta name="description" content="第四章 React ajax4.1理解4.1.1前置说明 React本身只关注于界面, 并不包含发送ajax请求的代码 前端应用需要通过ajax请求与后台进行交互(json数据) react应用中需要集成第三方ajax库(或自己封装)  4.1.2常用的ajax请求库 jQuery: 比较重, 如果需要另外引入不建议使用  axios: 轻量级, 建议使用  封装XmlHttpRequest对象的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React全家桶（四）">
 <meta property="og:url" content="http://example.com/2021/11/03/React%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E5%9B%9B%EF%BC%89/index.html">
 <meta property="og:site_name" content="Tstto&#39;s Blog">
-<meta property="og:description" content="第四章 React ajax">
+<meta property="og:description" content="第四章 React ajax4.1理解4.1.1前置说明 React本身只关注于界面, 并不包含发送ajax请求的代码 前端应用需要通过ajax请求与后台进行交互(json数据) react应用中需要集成第三方ajax库(或自己封装)  4.1.2常用的ajax请求库 jQuery: 比较重, 如果需要另外引入不建议使用  axios: 轻量级, 建议使用  封装XmlHttpRequest对象的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-03T02:58:10.000Z">
-<meta property="article:modified_time" content="2021-11-03T02:59:09.871Z">
+<meta property="article:modified_time" content="2021-11-03T12:29:53.299Z">
 <meta property="article:author" content="Tstto">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary_large_image">
@@ -184,7 +184,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      12 字
+      3.2k 字
     </span>
   
 
@@ -193,7 +193,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      10 分钟
     </span>
   
 
@@ -225,7 +225,82 @@
             <h1 style="display: none">React全家桶（四）</h1>
             
             <div class="markdown-body">
-              <h1 id="第四章-React-ajax"><a href="#第四章-React-ajax" class="headerlink" title="第四章 React ajax"></a>第四章 React ajax</h1>
+              <h1 id="第四章-React-ajax"><a href="#第四章-React-ajax" class="headerlink" title="第四章 React ajax"></a>第四章 React ajax</h1><h2 id="4-1理解"><a href="#4-1理解" class="headerlink" title="4.1理解"></a>4.1理解</h2><h5 id="4-1-1前置说明"><a href="#4-1-1前置说明" class="headerlink" title="4.1.1前置说明"></a>4.1.1前置说明</h5><ol>
+<li>React本身只关注于界面, 并不包含发送ajax请求的代码</li>
+<li>前端应用需要通过ajax请求与后台进行交互(json数据)</li>
+<li>react应用中需要集成第三方ajax库(或自己封装)</li>
+</ol>
+<h5 id="4-1-2常用的ajax请求库"><a href="#4-1-2常用的ajax请求库" class="headerlink" title="4.1.2常用的ajax请求库"></a>4.1.2常用的ajax请求库</h5><ol>
+<li><p>jQuery: 比较重, 如果需要另外引入不建议使用</p>
+</li>
+<li><p>axios: 轻量级, 建议使用</p>
+<ol>
+<li><p>封装XmlHttpRequest对象的ajax</p>
+</li>
+<li><p> promise风格</p>
+</li>
+</ol>
+<p>3）可以用在浏览器端和node服务器端</p>
+</li>
+</ol>
+<h2 id="4-2react脚手架配置代理总结"><a href="#4-2react脚手架配置代理总结" class="headerlink" title="4.2react脚手架配置代理总结"></a>4.2react脚手架配置代理总结</h2><p><strong>方法一</strong></p>
+<blockquote>
+<p>在package.json中追加如下配置</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-string">&quot;proxy&quot;</span>:<span class="hljs-string">&quot;http://localhost:5000&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ol>
+<li>优点：配置简单，前端请求资源时可以不加任何前缀。</li>
+<li>缺点：不能配置多个代理。</li>
+<li>工作方式：上述方式配置代理，当请求了3000不存在的资源时，那么该请求会被<strong>中间件</strong>转发给5000 （优先匹配前端资源）</li>
+</ol>
+<p><strong>方法二</strong></p>
+<ol>
+<li>第一步：创建代理配置文件</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">在<span class="hljs-attribute">src</span>下创建配置文件：<span class="hljs-attribute">src</span>/setupProxy<span class="hljs-selector-class">.js</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编写setupProxy.js配置具体代理规则：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> proxy = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http-proxy-middleware&#x27;</span>)<br><br><span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">app</span>) </span>&#123;<br><br>  app.use(<br><br>    proxy(<span class="hljs-string">&#x27;/api1&#x27;</span>, &#123;  <span class="hljs-comment">//api1是需要转发的请求(所有带有/api1前缀的请求都会转发给5000)</span><br><br>      <span class="hljs-attr">target</span>: <span class="hljs-string">&#x27;http://localhost:5000&#x27;</span>, <span class="hljs-comment">//配置转发目标地址(能返回数据的服务器地址)</span><br><br>      <span class="hljs-attr">changeOrigin</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//控制服务器接收到的请求头中host字段的值</span><br><br>      <span class="hljs-comment">/*</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       changeOrigin设置为true时，服务器收到的请求头中的host为：localhost:5000</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       changeOrigin设置为false时，服务器收到的请求头中的host为：localhost:3000</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       changeOrigin默认值为false，但我们一般将changeOrigin值设为true</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">      */</span><br><br>      <span class="hljs-attr">pathRewrite</span>: &#123;<span class="hljs-string">&#x27;^/api1&#x27;</span>: <span class="hljs-string">&#x27;&#x27;</span>&#125; <span class="hljs-comment">//去除请求前缀，保证交给后台服务器的是正常请求地址(必须配置)</span><br><br>    &#125;),<br><br>    proxy(<span class="hljs-string">&#x27;/api2&#x27;</span>, &#123; <br><br>      <span class="hljs-attr">target</span>: <span class="hljs-string">&#x27;http://localhost:5001&#x27;</span>,<br><br>      <span class="hljs-attr">changeOrigin</span>: <span class="hljs-literal">true</span>,<br><br>      <span class="hljs-attr">pathRewrite</span>: &#123;<span class="hljs-string">&#x27;^/api2&#x27;</span>: <span class="hljs-string">&#x27;&#x27;</span>&#125;<br><br>    &#125;)<br><br>  )<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ol>
+<li>优点：可以配置多个代理，可以灵活的控制请求是否走代理。</li>
+<li>缺点：配置繁琐，前端请求资源时必须加前缀。</li>
+</ol>
+<h2 id="4-3消息订阅-发布机制"><a href="#4-3消息订阅-发布机制" class="headerlink" title="4.3消息订阅-发布机制"></a>4.3消息订阅-发布机制</h2><ol>
+<li>工具库: PubSubJS</li>
+<li>下载: npm install pubsub-js –save</li>
+<li>使用</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-number">1</span>) <span class="hljs-keyword">import</span> PubSub <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;pubsub-js&#x27;</span> <span class="hljs-comment">//引入</span><br><br><span class="hljs-number">2</span>) PubSub.subscribe(<span class="hljs-string">&#x27;delete&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>&#123; &#125;); <span class="hljs-comment">//订阅</span><br><br><span class="hljs-number">3</span>）PubSub.publish(<span class="hljs-string">&#x27;delete&#x27;</span>, data) <span class="hljs-comment">//发布消息</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="4-4fetch"><a href="#4-4fetch" class="headerlink" title="4.4fetch"></a>4.4fetch</h2><p>发送网络请求—使用axios发送</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript">axios.get(<span class="hljs-regexp">/api1/</span>search/users2?q=$&#123;keyWord&#125;).then(<br>          <span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;<br>              <span class="hljs-comment">//请求成功后通知List更新状态</span><br>              PubSub.publish(<span class="hljs-string">&#x27;atguigu&#x27;</span>,&#123;<span class="hljs-attr">isLoading</span>:<span class="hljs-literal">false</span>,<span class="hljs-attr">users</span>:response.data.items&#125;)<br>          &#125;,<br>          <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;<br>              <span class="hljs-comment">//请求失败后通知App更新状态</span><br>              PubSub.publish(<span class="hljs-string">&#x27;atguigu&#x27;</span>,&#123;<span class="hljs-attr">isLoading</span>:<span class="hljs-literal">false</span>,<span class="hljs-attr">err</span>:error.message&#125;)<br>          &#125;<br>      )<br></code></pre></td></tr></table></figure>
+
+<p>发送网络请求—使用fetch发送（未优化）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript">fetch(<span class="hljs-string">`/api1/search/users2?q=<span class="hljs-subst">$&#123;keyWord&#125;</span>`</span>).then(<br>			<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;<br>				<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;联系服务器成功了&#x27;</span>);<br>                 <span class="hljs-comment">//返回一个新的promise对象</span><br>				<span class="hljs-keyword">return</span> response.json()<br>			&#125;,<br>			<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;<br>				<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;联系服务器失败了&#x27;</span>,error);<br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">()=&gt;</span>&#123;&#125;)<br>			&#125;<br>		).then(<br>			<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;获取数据成功了&#x27;</span>,response);&#125;,<br>			<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;获取数据失败了&#x27;</span>,error);&#125;<br>		)<br></code></pre></td></tr></table></figure>
+
+<p>发送网络请求—使用fetch发送（优化）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//外加一个aysnc函数</span><br>search = <span class="hljs-keyword">async</span>()=&gt;&#123;<br>	<span class="hljs-keyword">try</span> &#123;<br>			<span class="hljs-keyword">const</span> response= <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">`/api1/search/users2?q=<span class="hljs-subst">$&#123;keyWord&#125;</span>`</span>)<br>			<span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.json()<br>			<span class="hljs-built_in">console</span>.log(data);<br>			PubSub.publish(<span class="hljs-string">&#x27;atguigu&#x27;</span>,&#123;<span class="hljs-attr">isLoading</span>:<span class="hljs-literal">false</span>,<span class="hljs-attr">users</span>:data.items&#125;)<br>		&#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>			<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;请求出错&#x27;</span>,error);<br>			PubSub.publish(<span class="hljs-string">&#x27;atguigu&#x27;</span>,&#123;<span class="hljs-attr">isLoading</span>:<span class="hljs-literal">false</span>,<span class="hljs-attr">err</span>:error.message&#125;)<br>		&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>github搜索案例相关知识点</p>
+<p>​        1.设计状态时要考虑全面，例如带有网络请求的组件，要考虑请求失败怎么办。</p>
+<p>​        2.ES6小知识点：解构赋值+重命名</p>
+<p>​                    let obj = {a:{b:1}}</p>
+<p>​                    const {a} = obj; //传统解构赋值</p>
+<p>​                    const {a:{b}} = obj; //连续解构赋值</p>
+<p>​                    const {a:{b:value}} = obj; //连续解构赋值+重命名</p>
+<p>​        3.消息订阅与发布机制</p>
+<p>​                    1.先订阅，再发布（理解：有一种隔空对话的感觉）</p>
+<p>​                    2.<strong>适用于任意组件间通信</strong></p>
+<p>​                    3.要在组件的componentWillUnmount中取消订阅</p>
+<p>​        4.fetch发送请求（<strong>关注分离</strong>的设计思想）</p>
+<p>JQuery和Axios是对xhr的封装，fetch是windows中自带的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-keyword">const</span> response= <span class="hljs-keyword">await</span> fetch(<span class="hljs-regexp">/api1/</span>search/users2?q=$&#123;keyWord&#125;)<br>    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.json()<br>    <span class="hljs-built_in">console</span>.log(data);<br>&#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;请求出错&#x27;</span>,error);<br>&#125;<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -252,6 +327,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/11/03/React%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%BA%94%EF%BC%89/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">React全家桶（五）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
