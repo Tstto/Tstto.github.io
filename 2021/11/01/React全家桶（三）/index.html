@@ -24,7 +24,7 @@
 <meta property="og:description" content="第三章 React应用（基于React脚手架）3.1使用create-react-app创建react应用3.1.1react脚手架 xxx脚手架: 用来帮助程序员快速创建一个基于xxx库的模板项目   包含了所有需要的配置（语法检查、jsx编译、devServer…） 下载好了所有相关的依赖 可以直接运行一个简单效果   react提供了一个用于创建react项目的脚手架库: create-re">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-01T06:05:27.000Z">
-<meta property="article:modified_time" content="2021-11-03T05:26:09.536Z">
+<meta property="article:modified_time" content="2021-11-03T15:52:53.298Z">
 <meta property="article:author" content="Tstto">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary_large_image">
@@ -273,24 +273,24 @@
 <li><p>实现静态组件: 使用组件实现静态页面效果</p>
 </li>
 <li><p>实现动态组件</p>
-<p>3.1 动态显示初始化数据</p>
+<p>3.1动态显示初始化数据</p>
 <p>​    数据类型</p>
 <p>​    数据名称</p>
 <p>​    保存在哪个组件?</p>
-<p>3.2 交互(从绑定事件监听开始)</p>
+<p>3.2交互(从绑定事件监听开始)</p>
 </li>
 </ol>
 <h2 id="3-2组件的组合使用-TodoList"><a href="#3-2组件的组合使用-TodoList" class="headerlink" title="3.2组件的组合使用-TodoList"></a>3.2组件的组合使用-TodoList</h2><p>todoList案例相关知识点</p>
-<p>​        1.拆分组件、实现静态组件，注意：className、st的yle写法</p>
-<p>​        2.动态初始化列表，如何确定将数据放在哪个组件的state中？</p>
-<p>​                    ——某个组件使用：放在其自身的state中</p>
-<p>​                    ——某些组件使用：放在他们共同的父组件state中（官方称此操作为：状态提升）</p>
-<p>​        3.关于父子之间通信：</p>
-<p>​                1.【父组件】给【子组件】传递数据：通过props传递</p>
-<p>​                2.【子组件】给【父组件】传递数据：通过props传递，要求父提前给子传递一个函数</p>
-<p>​        4.注意defaultChecked 和 checked的区别，类似的还有：defaultValue 和 value</p>
-<p>​        defaultChecked只在第一次有作用，后面不生效</p>
-<p>​        5.状态在哪里，操作状态的方法就在哪里</p>
+<p>1.拆分组件、实现静态组件，注意：className、style写法</p>
+<p>2.动态初始化列表，如何确定将数据放在哪个组件的state中？</p>
+<p>——某个组件使用：放在其自身的state中</p>
+<p>——某些组件使用：放在他们共同的父组件state中（官方称此操作为：状态提升）</p>
+<p>3.关于父子之间通信：</p>
+<p>​    【父组件】给【子组件】传递数据：通过props传递</p>
+<p>​    【子组件】给【父组件】传递数据：通过props传递，要求父提前给子传递一个函数</p>
+<p>4.注意defaultChecked 和 checked的区别，类似的还有：defaultValue 和 value</p>
+<p>defaultChecked只在第一次有作用，后面不生效</p>
+<p>5.状态在哪里，操作状态的方法就在哪里</p>
 
             </div>
             <hr>
