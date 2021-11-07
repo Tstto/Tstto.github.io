@@ -24,8 +24,9 @@
 <meta property="og:description" content="第七章 Redux7.1redux理解7.1.1学习文档 英文文档: https:&#x2F;&#x2F;redux.js.org&#x2F; 中文文档: http:&#x2F;&#x2F;www.redux.org.cn&#x2F; Github: https:&#x2F;&#x2F;github.com&#x2F;reactjs&#x2F;redux  7.1.2redux是什么 redux是一个专门用于做状态管理的JS库(不是react插件库)。 它可以用在react, angular,">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/pic/React/3.png">
+<meta property="og:image" content="http://example.com/pic/React/4.png">
 <meta property="article:published_time" content="2021-11-05T03:27:13.000Z">
-<meta property="article:modified_time" content="2021-11-05T15:43:42.150Z">
+<meta property="article:modified_time" content="2021-11-06T11:45:46.876Z">
 <meta property="article:author" content="Tstto">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary_large_image">
@@ -186,7 +187,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      3.2k 字
     </span>
   
 
@@ -195,7 +196,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 分钟
+      10 分钟
     </span>
   
 
@@ -275,6 +276,24 @@
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-number">2</span>.求和案例_redux完整版<br>	新增文件：<br>		<span class="hljs-number">1</span>)<span class="hljs-selector-class">.count_action</span><span class="hljs-selector-class">.js</span> 专门用于创建action对象<br>		<span class="hljs-number">2</span>)<span class="hljs-selector-class">.constant</span><span class="hljs-selector-class">.js</span> 放置容易写错的type值<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs fortran"><span class="hljs-number">3.</span>求和案例_redux异步<span class="hljs-keyword">action</span>版<br>//同步<span class="hljs-keyword">action</span>，就是指<span class="hljs-keyword">action</span>的值为Object类型的一般对象<br>//异步<span class="hljs-keyword">action</span>，就是指<span class="hljs-keyword">action</span>的值为函数,异步<span class="hljs-keyword">action</span>中一般都会调用同步<span class="hljs-keyword">action</span>，异步<span class="hljs-keyword">action</span>不是必须要用的。<br>	(<span class="hljs-number">1</span>).明确：延迟的动作不想交给组件自身，想交给<span class="hljs-keyword">action</span><br>	(<span class="hljs-number">2</span>).何时需要异步<span class="hljs-keyword">action</span>：想要对状态进行操作，但是具体的数据靠异步任务返回。<br>	(<span class="hljs-number">3</span>).具体编码：<br>		 <span class="hljs-number">1</span>).yarn add redux-thunk，并配置在store中<br>		 <span class="hljs-number">2</span>).创建<span class="hljs-keyword">action</span>的函数不再返回一般对象，而是一个函数，该函数中写异步任务。<br>		 <span class="hljs-number">3</span>).异步任务有结果后，分发一个同步的<span class="hljs-keyword">action</span>去真正操作数据。<br>	(<span class="hljs-number">4</span>).备注：异步<span class="hljs-keyword">action</span>不是必须要写的，完全可以自己等待异步任务的结果了再去分发同步<span class="hljs-keyword">action</span>。<br></code></pre></td></tr></table></figure>
+<p><img src="/pic/React/4.png" srcset="/img/loading.gif" lazyload alt="react-redux模型图"></p>
+<p>react-redux是Facebook开发的，是React的插件库，能更方便地在React中使用Redux</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">4</span>.求和案例<span class="hljs-selector-tag">_react-redux</span>基本使用<br>	(<span class="hljs-number">1</span>).明确两个概念：<br>		<span class="hljs-selector-tag">1</span>)<span class="hljs-selector-class">.UI</span>组件:不能使用任何<span class="hljs-selector-tag">redux</span>的<span class="hljs-selector-tag">api</span>，只负责页面的呈现、交互等。<br>		<span class="hljs-selector-tag">2</span>).容器组件：负责和<span class="hljs-selector-tag">redux</span>通信，将结果交给<span class="hljs-selector-tag">UI</span>组件。<br>	(<span class="hljs-number">2</span>).如何创建一个容器组件————靠<span class="hljs-selector-tag">react-redux</span> 的 <span class="hljs-selector-tag">connect</span>函数<br>		<span class="hljs-selector-tag">connect</span>(mapStateToProps,mapDispatchToProps)(UI组件)<br>			<span class="hljs-selector-tag">-mapStateToProps</span>:映射状态，返回值是一个对象<br>			<span class="hljs-selector-tag">-mapDispatchToProps</span>:映射操作状态的方法，返回值是一个对象<br>	(<span class="hljs-number">3</span>).备注<span class="hljs-selector-tag">1</span>：容器组件中的<span class="hljs-selector-tag">store</span>是靠<span class="hljs-selector-tag">props</span>传进去的，而不是在容器组件中直接引入<br>	(<span class="hljs-number">4</span>).备注<span class="hljs-selector-tag">2</span>：<span class="hljs-selector-tag">mapDispatchToProps</span>，也可以是一个对象<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">5.求和案例_react-redux优化<br>	<span class="hljs-params">(1)</span>.容器组件和UI组件整合一个文件<br>	<span class="hljs-params">(2)</span>.无需自己给容器组件传递store，给&lt;App/&gt;包裹一个&lt;Provider store=&#123;store&#125;&gt;即可。<br>	<span class="hljs-params">(3)</span>.使用了react-redux后也不用再自己检测redux中状态的改变了，容器组件可以自动完成这个工作。<br>	<span class="hljs-params">(4)</span><span class="hljs-string">.mapDispatchToProps</span>也可以简单的写成一个对象<br>	<span class="hljs-params">(5)</span>.一个组件要和redux“打交道”要经过哪几步？<br>		<span class="hljs-params">(1)</span>.定义好UI组件<span class="hljs-params">---</span>不暴露<br>		<span class="hljs-params">(2)</span>.引入<span class="hljs-keyword">connect</span>生成一个容器组件，并暴露，写法如下：<br>			<span class="hljs-keyword">connect</span><span class="hljs-params">(</span><br><span class="hljs-params">				<span class="hljs-attr">state</span> =&gt; (&#123;key:value&#125;)</span>, <span class="hljs-string">//</span>映射状态<br>				&#123;key<span class="hljs-function">:xxxxxAction</span>&#125; <span class="hljs-string">//</span>映射操作状态的方法<br>			)<span class="hljs-params">(UI组件)</span><br>		<span class="hljs-params">(4)</span>.在UI组件中通过this.props.xxxxxxx读取和操作状态<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">6</span>.求和案例<span class="hljs-selector-tag">_react-redux</span>数据共享版<br>	(<span class="hljs-number">1</span>).定义一个<span class="hljs-selector-tag">Pserson</span>组件，和<span class="hljs-selector-tag">Count</span>组件通过<span class="hljs-selector-tag">redux</span>共享数据。<br>	(<span class="hljs-number">2</span>).为<span class="hljs-selector-tag">Person</span>组件编写：<span class="hljs-selector-tag">reducer</span>、<span class="hljs-selector-tag">action</span>，配置<span class="hljs-selector-tag">constant</span>常量。<br>	(<span class="hljs-number">3</span>).重点：<span class="hljs-selector-tag">Person</span>的<span class="hljs-selector-tag">reducer</span>和<span class="hljs-selector-tag">Count</span>的<span class="hljs-selector-tag">Reducer</span>要使用<span class="hljs-selector-tag">combineReducers</span>进行合并，<br>		合并后的总状态是一个对象！！！<br>	(<span class="hljs-number">4</span>).交给<span class="hljs-selector-tag">store</span>的是总<span class="hljs-selector-tag">reducer</span>，最后注意在组件中取出状态的时候，记得“取到位”。<br></code></pre></td></tr></table></figure>
+
+<p><strong>纯函数</strong>必须遵守以下一些约束  </p>
+<ol>
+<li>不得改写参数数据</li>
+<li>不会产生任何副作用，例如网络请求，输入和输出设备</li>
+<li>不能调用Date.now()或者Math.random()等不纯的方法  </li>
+</ol>
+<p>redux的reducer函数必须是一个纯函数</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs oxygene"><span class="hljs-number">7</span>.求和案例_react-redux开发者工具的使用<br>	(<span class="hljs-number">1</span>).yarn <span class="hljs-keyword">add</span> redux-devtools-<span class="hljs-keyword">extension</span><br>	(<span class="hljs-number">2</span>).store中进行配置<br>		import <span class="hljs-comment">&#123;composeWithDevTools&#125;</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;redux-devtools-extension&#x27;</span><br>		<span class="hljs-keyword">const</span> store = createStore(allReducer,composeWithDevTools(applyMiddleware(thunk)))<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">8</span>.求和案例<span class="hljs-selector-tag">_react-redux</span>最终版<br>	(<span class="hljs-number">1</span>).所有变量名字要规范，尽量触发对象的简写形式。<br>	(<span class="hljs-number">2</span>)<span class="hljs-selector-class">.reducers</span>文件夹中，编写<span class="hljs-selector-tag">index</span><span class="hljs-selector-class">.js</span>专门用于汇总并暴露所有的<span class="hljs-selector-tag">reducer</span><br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -301,6 +320,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/11/07/React%E6%89%A9%E5%B1%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">React扩展</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
