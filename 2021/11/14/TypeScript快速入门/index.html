@@ -1,0 +1,776 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favorite.jpeg">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Tstto">
+  <meta name="keywords" content="">
+  <meta name="description" content="第一章 快速入门0、TypeScript简介 TypeScript是JavaScript的超集。 它对JS进行了扩展，向JS中引入了类型的概念，并添加了许多新的特性。 TS代码需要通过编译器编译为JS，然后再交由JS解析器执行。 TS完全兼容JS，换言之，任何的TS代码都可以直接当成JS使用。 相较于JS而言，TS拥有了静态类型，更加严格的语法，更强大的功能；TS可以在代码执行前就完成代码的检查，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript快速入门">
+<meta property="og:url" content="http://example.com/2021/11/14/TypeScript%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Tstto&#39;s Blog">
+<meta property="og:description" content="第一章 快速入门0、TypeScript简介 TypeScript是JavaScript的超集。 它对JS进行了扩展，向JS中引入了类型的概念，并添加了许多新的特性。 TS代码需要通过编译器编译为JS，然后再交由JS解析器执行。 TS完全兼容JS，换言之，任何的TS代码都可以直接当成JS使用。 相较于JS而言，TS拥有了静态类型，更加严格的语法，更强大的功能；TS可以在代码执行前就完成代码的检查，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-14T08:42:01.000Z">
+<meta property="article:modified_time" content="2021-11-14T08:43:58.256Z">
+<meta property="article:author" content="Tstto">
+<meta property="article:tag" content="TypeScipt">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>TypeScript快速入门 - Tstto&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Tstto</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="TypeScript快速入门">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-14 16:42" pubdate>
+        2021年11月14日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      28 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">TypeScript快速入门</h1>
+            
+            <div class="markdown-body">
+              <h1 id="第一章-快速入门"><a href="#第一章-快速入门" class="headerlink" title="第一章 快速入门"></a>第一章 快速入门</h1><h2 id="0、TypeScript简介"><a href="#0、TypeScript简介" class="headerlink" title="0、TypeScript简介"></a>0、TypeScript简介</h2><ol>
+<li>TypeScript是JavaScript的超集。</li>
+<li>它对JS进行了扩展，向JS中引入了类型的概念，并添加了许多新的特性。</li>
+<li>TS代码需要通过编译器编译为JS，然后再交由JS解析器执行。</li>
+<li>TS完全兼容JS，换言之，任何的TS代码都可以直接当成JS使用。</li>
+<li>相较于JS而言，TS拥有了静态类型，更加严格的语法，更强大的功能；TS可以在代码执行前就完成代码的检查，减小了运行时异常的出现的几率；TS代码可以编译为任意版本的JS代码，可有效解决不同JS运行环境的兼容问题；同样的功能，TS的代码量要大于JS，但由于TS的代码结构更加清晰，变量类型更加明确，在后期代码的维护中TS却远远胜于JS。</li>
+</ol>
+<h2 id="1、TypeScript-开发环境搭建"><a href="#1、TypeScript-开发环境搭建" class="headerlink" title="1、TypeScript 开发环境搭建"></a>1、TypeScript 开发环境搭建</h2><ol>
+<li>下载Node.js<ul>
+<li>64位：<a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.1/node-v14.15.1-x64.msi">https://nodejs.org/dist/v14.15.1/node-v14.15.1-x64.msi</a></li>
+<li>32位：<a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.1/node-v14.15.1-x86.msi">https://nodejs.org/dist/v14.15.1/node-v14.15.1-x86.msi</a></li>
+</ul>
+</li>
+<li>安装Node.js</li>
+<li>使用npm全局安装typescript<ul>
+<li>进入命令行</li>
+<li>输入：npm i -g typescript</li>
+</ul>
+</li>
+<li>创建一个ts文件</li>
+<li>使用tsc对ts文件进行编译<ul>
+<li>进入命令行</li>
+<li>进入ts文件所在目录</li>
+<li>执行命令：tsc xxx.ts</li>
+</ul>
+</li>
+</ol>
+<h2 id="2、基本类型"><a href="#2、基本类型" class="headerlink" title="2、基本类型"></a>2、基本类型</h2><ul>
+<li><p>类型声明</p>
+<ul>
+<li><p>类型声明是TS非常重要的一个特点</p>
+</li>
+<li><p>通过类型声明可以指定TS中变量（参数、形参）的类型</p>
+</li>
+<li><p>指定类型后，当为变量赋值时，TS编译器会自动检查值是否符合类型声明，符合则赋值，否则报错</p>
+</li>
+<li><p>简而言之，类型声明给变量设置了类型，使得变量只能存储某种类型的值</p>
+</li>
+<li><p>语法：</p>
+<ul>
+<li><p>```typescript<br>let 变量: 类型;</p>
+<p>let 变量: 类型 = 值;</p>
+<p>function fn(参数: 类型, 参数: 类型): 类型{</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs gherkin"><br>- 自动类型判断<br><br>  - TS拥有自动的类型判断机制<br>  - 当对变量的声明和赋值是同时进行的，TS编译器会自动判断变量的类型<br>  - 所以如果你的变量的声明和赋值时同时进行的，可以省略掉类型声明<br><br>- 类型：<br><br>  |<span class="hljs-string">  类型   </span>|<span class="hljs-string">       例子        </span>|<span class="hljs-string">              描述              </span>|<br>  |<span class="hljs-string"> :-----: </span>|<span class="hljs-string"> :---------------: </span>|<span class="hljs-string"> :----------------------------: </span>|<br>  |<span class="hljs-string"> number  </span>|<span class="hljs-string">    1, -33, 2.5    </span>|<span class="hljs-string">            任意数字            </span>|<br>  |<span class="hljs-string"> string  </span>|<span class="hljs-string"> &#x27;hi&#x27;, &quot;hi&quot;, `hi`  </span>|<span class="hljs-string">           任意字符串           </span>|<br>  |<span class="hljs-string"> boolean </span>|<span class="hljs-string">    true、false    </span>|<span class="hljs-string">       布尔值true或false        </span>|<br>  |<span class="hljs-string"> 字面量  </span>|<span class="hljs-string">      其本身       </span>|<span class="hljs-string">  限制变量的值就是该字面量的值  </span>|<br>  |<span class="hljs-string">   any   </span>|<span class="hljs-string">         *         </span>|<span class="hljs-string">            任意类型            </span>|<br>  |<span class="hljs-string"> unknown </span>|<span class="hljs-string">         *         </span>|<span class="hljs-string">         类型安全的any          </span>|<br>  |<span class="hljs-string">  void   </span>|<span class="hljs-string"> 空值（undefined） </span>|<span class="hljs-string">     没有值（或undefined）      </span>|<br>  |<span class="hljs-string">  never  </span>|<span class="hljs-string">      没有值       </span>|<span class="hljs-string">          不能是任何值          </span>|<br>  |<span class="hljs-string"> object  </span>|<span class="hljs-string">  &#123;name:&#x27;孙悟空&#x27;&#125;  </span>|<span class="hljs-string">          任意的JS对象          </span>|<br>  |<span class="hljs-string">  array  </span>|<span class="hljs-string">      [1,2,3]      </span>|<span class="hljs-string">           任意JS数组           </span>|<br>  |<span class="hljs-string">  tuple  </span>|<span class="hljs-string">       [4,5]       </span>|<span class="hljs-string"> 元素，TS新增类型，固定长度数组 </span>|<br>  |<span class="hljs-string">  enum   </span>|<span class="hljs-string">    enum&#123;A, B&#125;     </span>|<span class="hljs-string">       枚举，TS中新增类型       </span>|<br><br>- number<br><br>  - ```typescript<br>    let decimal: number = 6;<br>    let hex: number = 0xf00d;<br>    let binary: number = 0b1010;<br>    let octal: number = 0o744;<br>    let big: bigint = 100n;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>boolean</p>
+<ul>
+<li>```typescript<br>let isDone: boolean = false;<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xquery"><br>-<span class="hljs-built_in"> string</span><br><br>  - ```typescript<br>    <span class="hljs-keyword">let</span> color:<span class="hljs-built_in"> string</span> = <span class="hljs-string">&quot;blue&quot;</span>;<br>    color = <span class="hljs-string">&#x27;red&#x27;</span>;<br><br>    <span class="hljs-keyword">let</span> fullName:<span class="hljs-built_in"> string</span> = `Bob Bobbington`;<br>    <span class="hljs-keyword">let</span> age:<span class="hljs-built_in"> number</span> = <span class="hljs-number">37</span>;<br>    <span class="hljs-keyword">let</span> sentence:<span class="hljs-built_in"> string</span> = `Hello, my<span class="hljs-built_in"> name</span> <span class="hljs-literal">is</span> $&#123;fullName&#125;.<br><br>    I<span class="hljs-string">&#x27;ll be $&#123;age + 1&#125; years old next month.`;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>字面量</p>
+<ul>
+<li><p>也可以使用字面量去指定变量的类型，通过字面量可以确定变量的取值范围</p>
+</li>
+<li><p>```typescript<br>let color: ‘red’ | ‘blue’ | ‘black’;<br>let num: 1 | 2 | 3 | 4 | 5;</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs nix"><br>- any<br><br>  - ```typescript<br>    <span class="hljs-keyword">let</span> d: <span class="hljs-attr">any</span> = <span class="hljs-number">4</span>;<br>    <span class="hljs-attr">d</span> = &#x27;hello&#x27;;<br>    <span class="hljs-attr">d</span> = <span class="hljs-literal">true</span>;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>unknown</p>
+<ul>
+<li>```typescript<br>let notSure: unknown = 4;<br>notSure = ‘hello’;<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><br>- <span class="hljs-keyword">void</span><br><br>  - ```<span class="javascript">typescript</span><br><span class="javascript">    <span class="hljs-keyword">let</span> unusable: <span class="hljs-keyword">void</span> = <span class="hljs-literal">undefined</span>;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>never</p>
+<ul>
+<li>```typescript<br>function error(message: string): never {<br>  throw new Error(message);<br>}<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><br>- <span class="hljs-built_in">object</span>（没啥用）<br><br>  - ```typescript<br>    <span class="hljs-keyword">let</span> obj: <span class="hljs-built_in">object</span> = &#123;属性名：属性值&#125;;<br>    <span class="hljs-comment">// &#123;&#125; 用来指定对象中可以包含哪些属性</span><br>    <span class="hljs-comment">// 语法：&#123;属性名:属性值,属性名:属性值&#125;</span><br>    <span class="hljs-comment">// 在属性名后边加上?，表示属性是可选的</span><br>    <span class="hljs-keyword">let</span> b: &#123;name: <span class="hljs-built_in">string</span>, age?: number&#125;;<br>    b = &#123;name: <span class="hljs-string">&#x27;孙悟空&#x27;</span>, age: <span class="hljs-number">18</span>&#125;;<br><br>    <span class="hljs-comment">// [propName: string]: any 表示任意类型的属性</span><br>    <span class="hljs-keyword">let</span> c: &#123;name: <span class="hljs-built_in">string</span>, [propName: <span class="hljs-built_in">string</span>]: any&#125;;<br>    c = &#123;name: <span class="hljs-string">&#x27;猪八戒&#x27;</span>, age: <span class="hljs-number">18</span>, gender: <span class="hljs-string">&#x27;男&#x27;</span>&#125;;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>array</p>
+<ul>
+<li>```typescript<br>let list: number[] = [1, 2, 3];<br>let list: Array<number> = [1, 2, 3];<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><br>- tuple<br><br>  - ```typescript<br>    <span class="hljs-comment">//固定长度的数组</span><br>    <span class="hljs-keyword">let</span> x: [<span class="hljs-built_in">string</span>, number];<br>    x = [<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-number">10</span>]; <br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>enum</p>
+<ul>
+<li><p>```typescript<br>enum Color {<br>  Red,<br>  Green,<br>  Blue,<br>}<br>let c: Color = Color.Green;</p>
+<p>enum Color {<br>  Red = 1,<br>  Green,<br>  Blue,<br>}<br>let c: Color = Color.Green;</p>
+<p>enum Color {<br>  Red = 1,<br>  Green = 2,<br>  Blue = 4,<br>}<br>let c: Color = Color.Green;</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs haml"><br>-<span class="ruby"> 类型断言</span><br><span class="ruby"></span><br>  -<span class="ruby"> 有些情况下，变量的类型对于我们来说是很明确，但是TS编译器却并不清楚，此时，可以通过类型断言来告诉编译器变量的类型，断言有两种形式：</span><br><span class="ruby"></span><br>  -<span class="ruby"> <span class="hljs-string">``</span><span class="hljs-string">`typescript</span></span><br><span class="hljs-string"><span class="ruby"></span></span>    s = e as string<br>    s = &lt;string&gt;e<br></code></pre></td></tr></table></figure></li>
+<li><p>​</p>
+<ul>
+<li><p>第一种</p>
+<ul>
+<li>```typescript<br>let someValue: unknown = “this is a string”;<br>let strLength: number = (someValue as string).length;<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs maxima"><br>- 第二种<br><br>  - ```typescript<br>    <span class="hljs-built_in">let</span> someValue: <span class="hljs-literal">unknown</span> = <span class="hljs-string">&quot;this is a string&quot;</span>;<br>    <span class="hljs-built_in">let</span> strLength: number = (&lt;<span class="hljs-built_in">string</span>&gt;someValue).<span class="hljs-built_in">length</span>;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3、编译选项"><a href="#3、编译选项" class="headerlink" title="3、编译选项"></a>3、编译选项</h2><ul>
+<li><p>自动编译文件</p>
+<ul>
+<li><p>编译文件时，使用 -w 指令后，TS编译器会自动监视文件的变化，并在文件发生变化时对文件进行重新编译。</p>
+</li>
+<li><p>示例：</p>
+<ul>
+<li><p>```powershell<br>tsc xxx.ts -w</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs haml"><br>-<span class="ruby"> 自动编译整个项目</span><br><span class="ruby"></span><br>  -<span class="ruby"> 如果直接使用tsc指令，则可以自动将当前项目下的所有ts文件编译为js文件。</span><br><span class="ruby"></span><br>  -<span class="ruby"> 但是能直接使用tsc命令的前提时，要先tsc --init在项目根目录下创建一个ts的配置文件 tsconfig.json</span><br><span class="ruby"></span><br>  -<span class="ruby"> tsconfig.json是一个JSON文件，添加配置文件后，只需 tsc 命令即可完成对整个项目的编译</span><br><span class="ruby"></span><br>  -<span class="ruby"> 配置选项：</span><br><span class="ruby"></span><br>    -<span class="ruby"> <span class="hljs-keyword">include</span></span><br><span class="ruby"></span><br>      -<span class="ruby"> 定义希望被编译文件所在的目录</span><br><span class="ruby"></span><br>      -<span class="ruby"> 默认值：[<span class="hljs-string">&quot;\*\*/\*&quot;</span>]</span><br><span class="ruby"></span><br>      -<span class="ruby"> 示例：</span><br><span class="ruby"></span><br>        -<span class="ruby"> <span class="hljs-string">``</span><span class="hljs-string">`json</span></span><br><span class="hljs-string"><span class="ruby"></span></span>          &quot;include&quot;:[&quot;src/**/*&quot;, &quot;tests/**/*&quot;]<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>上述示例中，所有src目录和tests目录下的文件都会被编译</li>
+</ul>
+</li>
+<li><p>exclude</p>
+<ul>
+<li><p>定义需要排除在外的目录</p>
+</li>
+<li><p>默认值：[“node_modules”, “bower_components”, “jspm_packages”]</p>
+</li>
+<li><p>示例：</p>
+<ul>
+<li><p>```json<br>“exclude”: [“./src/hello/**/*”]</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs haml"><br>    -<span class="ruby"> 上述示例中，src下hello目录下的文件都不会被编译</span><br><span class="ruby"></span><br>-<span class="ruby"> extends</span><br><span class="ruby"></span><br>  -<span class="ruby"> 定义被继承的配置文件</span><br><span class="ruby"></span><br>  -<span class="ruby"> 示例：</span><br><span class="ruby"></span><br>    -<span class="ruby"> <span class="hljs-string">``</span><span class="hljs-string">`json</span></span><br><span class="hljs-string"><span class="ruby"></span></span>      &quot;extends&quot;: &quot;./configs/base&quot;<br></code></pre></td></tr></table></figure></li>
+<li><p>上述示例中，当前配置文件中会自动包含config目录下base.json中的所有配置信息</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>files</p>
+<ul>
+<li><p>指定被编译文件的列表，只有需要编译的文件少时才会用到</p>
+</li>
+<li><p>示例：</p>
+<ul>
+<li><p>```json<br>“files”: [</p>
+<pre><code>&quot;core.ts&quot;,
+&quot;sys.ts&quot;,
+&quot;types.ts&quot;,
+&quot;scanner.ts&quot;,
+&quot;parser.ts&quot;,
+&quot;utilities.ts&quot;,
+&quot;binder.ts&quot;,
+&quot;checker.ts&quot;,
+&quot;tsc.ts&quot;
+</code></pre>
+<p>  ]</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs haml"><br>  -<span class="ruby"> 列表中的文件都会被TS编译器所编译</span><br><span class="ruby"></span><br>-<span class="ruby"> compilerOptions</span><br><span class="ruby"></span><br>  -<span class="ruby"> 编译选项是配置文件中非常重要也比较复杂的配置选项</span><br><span class="ruby"></span><br>  -<span class="ruby"> 在compilerOptions中包含多个子选项，用来完成对编译的配置</span><br><span class="ruby"></span><br>    -<span class="ruby"> 项目选项</span><br><span class="ruby"></span><br>      -<span class="ruby"> target</span><br><span class="ruby"></span><br>        -<span class="ruby"> 设置ts代码编译的目标版本</span><br><span class="ruby"></span><br>        -<span class="ruby"> 可选值：</span><br><span class="ruby"></span><br>          -<span class="ruby"> ES3（默认）、ES5、ES6/ES2015、ES7/ES2016、ES2017、ES2018、ES2019、ES2020、ESNext（最新版本）</span><br><span class="ruby"></span><br>        -<span class="ruby"> 示例：</span><br><span class="ruby"></span><br>          -<span class="ruby"> <span class="hljs-string">``</span><span class="hljs-string">`json</span></span><br><span class="hljs-string"><span class="ruby"></span></span>            &quot;compilerOptions&quot;: &#123;<br>                &quot;target&quot;: &quot;ES6&quot;<br>            &#125;<br></code></pre></td></tr></table></figure>
+
+<pre><code>  - 如上设置，我们所编写的ts代码将会被编译为ES6版本的js代码
+</code></pre>
+<ul>
+<li><p>lib</p>
+<ul>
+<li><p>指定代码运行时所包含的库（宿主环境）</p>
+</li>
+<li><p>可选值：</p>
+<ul>
+<li>ES5、ES6/ES2015、ES7/ES2016、ES2017、ES2018、ES2019、ES2020、ESNext、DOM、WebWorker、ScriptHost ……</li>
+</ul>
+</li>
+<li><p>示例：</p>
+<ul>
+<li>```json<br>“compilerOptions”: {<pre><code>&quot;target&quot;: &quot;ES6&quot;,
+&quot;lib&quot;: [&quot;ES6&quot;, &quot;DOM&quot;],
+&quot;outDir&quot;: &quot;dist&quot;,
+&quot;outFile&quot;: &quot;dist/aa.js&quot;
+</code></pre>
+}<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs haml"><br>-<span class="ruby"> <span class="hljs-class"><span class="hljs-keyword">module</span></span></span><br><span class="ruby"></span><br>  -<span class="ruby"> 设置编译后代码使用的模块化系统</span><br><span class="ruby"></span><br>  -<span class="ruby"> 可选值：</span><br><span class="ruby"></span><br>    -<span class="ruby"> CommonJS、UMD、AMD、System、ES2020、ESNext、None</span><br><span class="ruby"></span><br>  -<span class="ruby"> 示例：</span><br><span class="ruby"></span><br>    -<span class="ruby"> <span class="hljs-string">``</span><span class="hljs-string">`typescript</span></span><br><span class="hljs-string"><span class="ruby"></span></span>      &quot;compilerOptions&quot;: &#123;<br>          &quot;module&quot;: &quot;CommonJS&quot;<br>      &#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>outDir</p>
+<ul>
+<li><p>编译后文件的所在目录</p>
+</li>
+<li><p>默认情况下，编译后的js文件会和ts文件位于相同的目录，设置outDir后可以改变编译后文件的位置</p>
+</li>
+<li><p>示例：</p>
+<ul>
+<li>```json<br>“compilerOptions”: {<pre><code>&quot;outDir&quot;: &quot;dist&quot;
+</code></pre>
+}<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs haml"><br>    -<span class="ruby"> 设置后编译后的js文件将会生成到dist目录</span><br><span class="ruby"></span><br>-<span class="ruby"> outFile</span><br><span class="ruby"></span><br>  -<span class="ruby"> 将所有的文件编译为一个js文件</span><br><span class="ruby"></span><br>  -<span class="ruby"> 默认会将所有的编写在全局作用域中的代码合并为一个js文件，如果<span class="hljs-class"><span class="hljs-keyword">module</span>制定了<span class="hljs-title">None</span>、<span class="hljs-title">System</span>或<span class="hljs-title">AMD</span>则会将模块一起合并到文件之中</span></span><br><span class="ruby"></span><br>  -<span class="ruby"> 示例：</span><br><span class="ruby"></span><br>    -<span class="ruby"> <span class="hljs-string">``</span><span class="hljs-string">`json</span></span><br><span class="hljs-string"><span class="ruby"></span></span>      &quot;compilerOptions&quot;: &#123;<br>          &quot;outFile&quot;: &quot;dist/app.js&quot;<br>      &#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>rootDir</p>
+<ul>
+<li><p>指定代码的根目录，默认情况下编译后文件的目录结构会以最长的公共目录为根目录，通过rootDir可以手动指定根目录</p>
+</li>
+<li><p>示例：</p>
+<ul>
+<li>```json<br>“compilerOptions”: {<pre><code>&quot;rootDir&quot;: &quot;./src&quot;
+</code></pre>
+}<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><br>- allowJs<br><br>  - 是否对js文件编译<br><br>- checkJs<br><br>  - 是否对js文件进行检查<br><br>  - 示例：<br><br>    - ```json<br>      <span class="hljs-string">&quot;compilerOptions&quot;</span>: &#123;<br>          <span class="hljs-string">&quot;allowJs&quot;</span>: <span class="hljs-literal">true</span>,<br>          <span class="hljs-string">&quot;checkJs&quot;</span>: <span class="hljs-literal">true</span><br>      &#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>removeComments</p>
+<ul>
+<li>是否删除注释</li>
+<li>默认值：false</li>
+</ul>
+</li>
+<li><p>noEmit</p>
+<ul>
+<li>不对代码进行编译</li>
+<li>默认值：false</li>
+</ul>
+</li>
+<li><p>sourceMap</p>
+<ul>
+<li>是否生成sourceMap</li>
+<li>默认值：false</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs haml">-<span class="ruby"> 严格检查</span><br><span class="ruby"></span><br>  -<span class="ruby"> strict</span><br><span class="ruby"></span>    -<span class="ruby"> 启用所有的严格检查，默认值为<span class="hljs-literal">true</span>，设置后相当于开启了所有的严格检查</span><br><span class="ruby"></span>  -<span class="ruby"> alwaysStrict</span><br><span class="ruby"></span>    -<span class="ruby"> 总是以严格模式对代码进行编译</span><br><span class="ruby"></span>  -<span class="ruby"> noImplicitAny</span><br><span class="ruby"></span>    -<span class="ruby"> 禁止隐式的any类型</span><br><span class="ruby"></span>  -<span class="ruby"> noImplicitThis</span><br><span class="ruby"></span>    -<span class="ruby"> 禁止类型不明确的this</span><br><span class="ruby"></span>  -<span class="ruby"> strictBindCallApply</span><br><span class="ruby"></span>    -<span class="ruby"> 严格检查bind、call和apply的参数列表</span><br><span class="ruby"></span>  -<span class="ruby"> strictFunctionTypes</span><br><span class="ruby"></span>    -<span class="ruby"> 严格检查函数的类型</span><br><span class="ruby"></span>  -<span class="ruby"> strictNullChecks</span><br><span class="ruby"></span>    -<span class="ruby"> 严格的空值检查</span><br><span class="ruby"></span>  -<span class="ruby"> strictPropertyInitialization</span><br><span class="ruby"></span>    -<span class="ruby"> 严格检查属性是否初始化</span><br><span class="ruby"></span><br>-<span class="ruby"> 额外检查</span><br><span class="ruby"></span><br>  -<span class="ruby"> noFallthroughCasesInSwitch</span><br><span class="ruby"></span>    -<span class="ruby"> 检查switch语句包含正确的<span class="hljs-keyword">break</span></span><br><span class="ruby"></span>  -<span class="ruby"> noImplicitReturns</span><br><span class="ruby"></span>    -<span class="ruby"> 检查函数没有隐式的返回值</span><br><span class="ruby"></span>  -<span class="ruby"> noUnusedLocals</span><br><span class="ruby"></span>    -<span class="ruby"> 检查未使用的局部变量</span><br><span class="ruby"></span>  -<span class="ruby"> noUnusedParameters</span><br><span class="ruby"></span>    -<span class="ruby"> 检查未使用的参数</span><br><span class="ruby"></span><br>-<span class="ruby"> 高级</span><br><span class="ruby"></span><br>  -<span class="ruby"> allowUnreachableCode</span><br><span class="ruby"></span>    -<span class="ruby"> 检查不可达代码</span><br><span class="ruby"></span>    -<span class="ruby"> 可选值：</span><br><span class="ruby"></span>      -<span class="ruby"> <span class="hljs-literal">true</span>，忽略不可达代码</span><br><span class="ruby"></span>      -<span class="ruby"> <span class="hljs-literal">false</span>，不可达代码将引起错误</span><br><span class="ruby"></span>  -<span class="ruby"> noEmitOnError</span><br><span class="ruby"></span>    -<span class="ruby"> 有错误的情况下不进行编译</span><br><span class="ruby"></span>    -<span class="ruby"> 默认值：<span class="hljs-literal">false</span></span><br></code></pre></td></tr></table></figure>
+
+<h2 id="4、webpack"><a href="#4、webpack" class="headerlink" title="4、webpack"></a>4、webpack</h2><ul>
+<li><p>通常情况下，实际开发中我们都需要使用构建工具对代码进行打包，TS同样也可以结合构建工具一起使用，下边以webpack为例介绍一下如何结合构建工具使用TS。</p>
+</li>
+<li><p>步骤：</p>
+<ol>
+<li><p>初始化项目</p>
+<ul>
+<li>进入项目根目录，执行命令 <code> npm init -y</code><ul>
+<li>主要作用：创建package.json文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>下载构建工具</p>
+<ul>
+<li><code>npm i -D webpack webpack-cli webpack-dev-server typescript ts-loader clean-webpack-plugin</code><ul>
+<li>共安装了7个包<ul>
+<li>webpack<ul>
+<li>构建工具webpack</li>
+</ul>
+</li>
+<li>webpack-cli<ul>
+<li>webpack的命令行工具</li>
+</ul>
+</li>
+<li>webpack-dev-server<ul>
+<li>webpack的开发服务器</li>
+</ul>
+</li>
+<li>typescript<ul>
+<li>ts编译器</li>
+</ul>
+</li>
+<li>ts-loader<ul>
+<li>ts加载器，用于在webpack中编译ts文件</li>
+</ul>
+</li>
+<li>html-webpack-plugin<ul>
+<li>webpack中html插件，用来自动创建html文件</li>
+</ul>
+</li>
+<li>clean-webpack-plugin<ul>
+<li>webpack中的清除插件，每次构建都会先清除目录</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>根目录下创建webpack的配置文件webpack.config.js</p>
+<ul>
+<li><p>```javascript<br>const path = require(“path”);<br>const HtmlWebpackPlugin = require(“html-webpack-plugin”);<br>const { CleanWebpackPlugin } = require(“clean-webpack-plugin”);</p>
+<p>module.exports = {</p>
+<pre><code>optimization:&#123;
+    minimize: false // 关闭代码压缩，可选
+&#125;,
+
+entry: &quot;./src/index.ts&quot;,
+
+devtool: &quot;inline-source-map&quot;,
+
+devServer: &#123;
+    contentBase: &#39;./dist&#39;
+&#125;,
+
+output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+    environment: &#123;
+        arrowFunction: false // 关闭webpack的箭头函数，可选
+    &#125;
+&#125;,
+
+resolve: &#123;
+    extensions: [&quot;.ts&quot;, &quot;.js&quot;]
+&#125;,
+
+module: &#123;
+    rules: [
+        &#123;
+            test: /\.ts$/,
+            use: &#123;
+               loader: &quot;ts-loader&quot;     
+            &#125;,
+            exclude: /node_modules/
+        &#125;
+    ]
+&#125;,
+
+plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin(&#123;
+        title:&#39;TS测试&#39;
+    &#125;),
+]
+</code></pre>
+<p>}</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><br><span class="hljs-number">4</span>. 根目录下创建tsconfig.json，配置可以根据自己需要<br><br>   - ```json<br>     &#123;<br>         <span class="hljs-string">&quot;compilerOptions&quot;</span>: &#123;<br>             <span class="hljs-string">&quot;target&quot;</span>: <span class="hljs-string">&quot;ES2015&quot;</span>,<br>             <span class="hljs-string">&quot;module&quot;</span>: <span class="hljs-string">&quot;ES2015&quot;</span>,<br>             <span class="hljs-string">&quot;strict&quot;</span>: <span class="hljs-literal">true</span><br>         &#125;<br>     &#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>修改package.json添加如下配置</p>
+<ul>
+<li><p>```json<br>{<br>  …略…<br>  “scripts”: {</p>
+<pre><code>&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+&quot;build&quot;: &quot;webpack&quot;,
+&quot;start&quot;: &quot;webpack serve --open chrome.exe&quot;
+</code></pre>
+<p>  },<br>  …略…<br>}</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs n1ql"><br>  6. 在src下创建ts文件，并在并命令行执行```npm run <span class="hljs-keyword">build</span><span class="hljs-symbol">``</span><span class="hljs-symbol">`对代码进行编译，或者执行`</span><span class="hljs-symbol">``</span>npm <span class="hljs-keyword">start</span><span class="hljs-symbol">``</span><span class="hljs-symbol">`来启动开发服务器</span><br><span class="hljs-symbol"></span><br><span class="hljs-symbol">## 5、Babel</span><br><span class="hljs-symbol"></span><br><span class="hljs-symbol">- 经过一系列的配置，使得TS和webpack已经结合到了一起，除了webpack，开发中还经常需要结合babel来对代码进行转换以使其可以兼容到更多的浏览器，在上述步骤的基础上，通过以下步骤再将babel引入到项目中。</span><br><span class="hljs-symbol"></span><br><span class="hljs-symbol">  1. 安装依赖包：</span><br><span class="hljs-symbol"></span><br><span class="hljs-symbol">     - `</span><span class="hljs-symbol">``</span>npm i -D @babel/core @babel/preset-env babel-loader core-js<span class="hljs-symbol">``</span><span class="hljs-symbol">`</span><br><span class="hljs-symbol">     - 共安装了4个包，分别是：</span><br><span class="hljs-symbol">       - @babel/core</span><br><span class="hljs-symbol">         - babel的核心工具</span><br><span class="hljs-symbol">       - @babel/preset-env</span><br><span class="hljs-symbol">         - babel的预定义环境</span><br><span class="hljs-symbol">       - @babel-loader</span><br><span class="hljs-symbol">         - babel在webpack中的加载器</span><br><span class="hljs-symbol">       - core-js</span><br><span class="hljs-symbol">         - core-js用来使老版本的浏览器支持新版ES语法</span><br><span class="hljs-symbol"></span><br><span class="hljs-symbol">  2. 修改webpack.config.js配置文件</span><br><span class="hljs-symbol"></span><br><span class="hljs-symbol">     - `</span><span class="hljs-symbol">``</span>javascript<br>       ...略...<br>       module: &#123;<br>           rules: [<br>               &#123;<br>                   test: /\.ts$/,<br>                   <span class="hljs-keyword">use</span>: [<br>                       &#123;<br>                           loader: <span class="hljs-string">&quot;babel-loader&quot;</span>,<br>                           options:&#123;<br>                               presets: [<br>                                   [<br>                                       <span class="hljs-string">&quot;@babel/preset-env&quot;</span>,<br>                                       &#123;<br>                                           <span class="hljs-string">&quot;targets&quot;</span>:&#123;<br>                                               <span class="hljs-string">&quot;chrome&quot;</span>: <span class="hljs-string">&quot;58&quot;</span>,<br>                                               <span class="hljs-string">&quot;ie&quot;</span>: <span class="hljs-string">&quot;11&quot;</span><br>                                           &#125;,<br>                                           <span class="hljs-string">&quot;corejs&quot;</span>:<span class="hljs-string">&quot;3&quot;</span>,<br>                                           <span class="hljs-string">&quot;useBuiltIns&quot;</span>: <span class="hljs-string">&quot;usage&quot;</span><br>                                       &#125;<br>                                   ]<br>                               ]<br>                           &#125;<br>                       &#125;,<br>                       &#123;<br>                           loader: <span class="hljs-string">&quot;ts-loader&quot;</span>,<br><br>                       &#125;<br>                   ],<br>                   <span class="hljs-keyword">exclude</span>: /node_modules/<br>               &#125;<br>           ]<br>       &#125;<br>       ...略...<br></code></pre></td></tr></table></figure></li>
+<li><p>如此一来，使用ts编译后的文件将会再次被babel处理，使得代码可以在大部分浏览器中直接使用，可以在配置选项的targets中指定要兼容的浏览器版本。</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/TypeScipt/">TypeScipt</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/14/TypeScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">TypeScript面向对象</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/14/webpack%E6%89%A9%E5%B1%95/">
+                        <span class="hidden-mobile">webpack扩展</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://space.bilibili.com/387835375" target="_blank" rel="nofollow noopener"><span>Bilibili</span></a> <i class="iconfont icon-love"></i> <a href="https://gitee.com/ming-hui-pan" target="_blank" rel="nofollow noopener"><span>Gitee</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
